@@ -98,6 +98,12 @@ section[id], [id="top"] { scroll-margin-top: calc(var(--header-h) + 16px); }
 .display-hero { font: 400 var(--hero-fs)/0.88 var(--font-display); letter-spacing: -0.01em; }
 .display-xl   { font: 400 72px/72px var(--font-display); }
 .display-l    { font: 400 clamp(48px, 5vw, 64px)/1 var(--font-display); }
+
+/* Títulos de sección en sans: la gótica queda para el hero, "Hablemos",
+   la capitular y los numerales, para que se luzca como excepción. */
+.title-hero { font: 700 clamp(64px, 9vw, 128px)/0.95 var(--font-sans); letter-spacing: -0.035em; }
+.title-xl   { font: 700 clamp(40px, 4.4vw, 60px)/1.04 var(--font-sans); letter-spacing: -0.025em; }
+.title-l    { font: 700 clamp(36px, 4vw, 52px)/1.06 var(--font-sans); letter-spacing: -0.025em; }
 .display-m    { font: 400 clamp(32px, 3vw, 40px)/1 var(--font-display); }
 .h1   { font: 700 32px/38px var(--font-sans); }
 .h2   { font: 600 24px/30px var(--font-sans); }
@@ -276,11 +282,12 @@ a.logo-plate:hover { transform: translateY(-1px); }
 .menu-nav a {
   display: inline-flex; align-items: baseline; gap: 0.35em;
   color: var(--ink); text-decoration: none;
-  font: 400 clamp(44px, 7vw, 96px)/1.05 var(--font-display);
+  font: 700 clamp(36px, 5.6vw, 72px)/1.1 var(--font-sans);
+  letter-spacing: -0.025em;
   transition: transform .2s ease;
 }
 .menu-nav a:hover { transform: translateX(8px); }
-.menu-num { color: var(--ink-muted); font-size: .6em; min-width: 1.25em; }
+.menu-num { color: var(--ink-muted); font: 400 .7em/1 var(--font-display); letter-spacing: 0; min-width: 1.5em; }
 .menu-foot { font: 400 32px/1 var(--font-display); color: var(--ink-muted); }
 
 /* ---------- 6.3 Hero ---------- */
@@ -400,7 +407,8 @@ a.logo-plate:hover { transform: translateY(-1px); }
 .marquee-group {
   display: flex; align-items: center; flex: none;
   gap: 32px; padding-right: 32px;
-  font: 400 40px/1 var(--font-display);
+  font: 700 30px/1 var(--font-sans);
+  letter-spacing: -0.01em;
   white-space: nowrap;
 }
 @keyframes marquee { to { transform: translateX(-50%); } }
@@ -409,7 +417,35 @@ a.logo-plate:hover { transform: translateY(-1px); }
 .section { padding: 140px 0; }
 .section--alt { background: var(--surface-alt); }
 .section-head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
-.section-head .display-l { margin-bottom: var(--space-4); }
+.section-head .title-l { margin-bottom: var(--space-4); }
+
+/* Secciones claras (pergamino): el lado "campo" de la marca.
+   Redefinen los tokens para que los componentes se adapten solos. */
+.theme-light {
+  --surface:        var(--pergamino);
+  --surface-raised: #fbf6ee;   /* crema */
+  --surface-alt:    #fbf6ee;
+  --ink:            var(--noche);
+  --ink-muted:      #6e5448;   /* 5.3:1 sobre pergamino */
+  --line:           #d5cdc3;   /* piedra */
+  --line-strong:    var(--cuero);
+  --link:           #2f5f86;
+  --focus:          #2f5f86;
+  --error:          #a63d2a;   /* 5.2:1 sobre crema */
+  background: var(--surface);
+  color: var(--ink);
+}
+/* Bloque oscuro dentro de una sección clara */
+.theme-dark {
+  --surface:        #0f1730;
+  --surface-raised: #16203f;
+  --ink:            #f3ecdd;
+  --ink-muted:      #b9ad9f;
+  --line:           #2a3558;
+  --line-strong:    #7a879e;
+  --focus:          #8eb8da;
+  color: var(--ink);
+}
 @media (max-width: 1024px) { .section { padding: 104px 0; } }
 @media (max-width: 640px)  { .section { padding: 80px 0; } .section-head { margin-bottom: 40px; } }
 
@@ -420,7 +456,7 @@ a.logo-plate:hover { transform: translateY(-1px); }
   justify-content: space-between;
   gap: 80px; align-items: center;
 }
-.quienes-title { margin-bottom: var(--space-8); }
+.quienes-title { margin-bottom: var(--space-8); max-width: 15em; }
 .quienes-title > span { display: block; }
 .enciende { color: var(--ink-muted); }
 .enciende .w { color: var(--ink-muted); transition: color .35s ease; }
@@ -466,7 +502,7 @@ a.logo-plate:hover { transform: translateY(-1px); }
 
 /* ---------- 6.6 Servicios ---------- */
 .servicios-head { margin-bottom: 64px; }
-.servicios-title { font-size: clamp(72px, 11vw, 150px); margin-bottom: var(--space-6); }
+.servicios-title { margin-bottom: var(--space-6); }
 .servicios-sub { max-width: 420px; }
 
 .servicios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px 24px; }
@@ -530,6 +566,8 @@ a.logo-plate:hover { transform: translateY(-1px); }
 .ad-card { background: var(--surface-raised); border-radius: var(--radius-m); padding: var(--space-8); }
 .ad-card--antes { border: 1px solid var(--error); }
 .ad-card--despues { border: 2px solid var(--trigo); box-shadow: 0 0 40px rgb(217 167 73 / .12); }
+.theme-light .ad-card--antes { border-color: var(--line-strong); }
+.theme-light .ad-card--despues { box-shadow: 0 6px 0 var(--trigo); }
 .ad-title { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); }
 .ad-title--error { color: var(--error); }
 .check {
