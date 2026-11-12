@@ -622,47 +622,56 @@ section[id], #top { scroll-margin-top: calc(var(--header-h) + 8px); }
 
 /* ---------- Acompañante de scroll: la pareja del isotipo ---------- */
 .dancer-rail {
-  --p: 0; --sway: 0px;
+  --p: 0; --sway: 0px; --size: 64px;
   position: fixed; z-index: 40; pointer-events: none;
   /* Celular y tablet: recorre la parte de abajo de la pantalla, de izquierda a derecha */
-  left: var(--margin); right: var(--margin); bottom: 14px; height: 2px;
-  background: rgb(122 135 158 / .35);
+  left: var(--margin); right: var(--margin);
+  bottom: calc(var(--size) / 2 + 12px); height: 3px;
+  background: rgb(122 135 158 / .4);
+  transition: opacity .3s ease;
 }
 .dancer-progress {
   position: absolute; inset: 0; background: var(--trigo);
   transform: scaleX(var(--p)); transform-origin: left;
 }
 .dancer {
-  --size: 44px;
   position: absolute; top: 50%;
   left: calc(var(--p) * (100% - var(--size)));
   width: var(--size); height: var(--size);
   transform: translateY(calc(-50% + var(--sway)));
-  padding: 3px; background: var(--papel);
-  border: 1px solid var(--cuero); border-radius: var(--radius-s);
-  box-shadow: 0 8px 22px rgb(0 0 0 / .28);
-  transition: opacity .3s ease;
+}
+/* El marco va en un hijo para que el saltito no pise el desplazamiento */
+.dancer-frame {
+  display: block; width: 100%; height: 100%;
+  padding: 4px; background: var(--papel);
+  border: 2px solid var(--trigo); border-radius: var(--radius-s);
+  box-shadow: 0 0 0 4px rgb(217 167 73 / .18), 0 14px 34px rgb(0 0 0 / .35);
+  animation: dancer-idle 1.6s ease-in-out infinite alternate;
 }
 .dancer img { width: 100%; height: 100%; display: block; }
-.dancer.is-moving { animation: dancer-step .45s ease-in-out infinite alternate; }
-@keyframes dancer-step { to { margin-top: -4px; } }
+.dancer.is-moving .dancer-frame { animation: dancer-step .38s ease-in-out infinite alternate; }
+@keyframes dancer-idle { to { transform: translateY(-5px); } }
+@keyframes dancer-step { to { transform: translateY(-10px); } }
 body.no-scroll .dancer-rail { opacity: 0; }
 
+@media (min-width: 641px) { .dancer-rail { --size: 84px; } }
+
 /* Escritorio ancho: riel vertical en el margen derecho, de arriba a abajo */
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .dancer-rail {
-    left: auto; right: 40px; bottom: 32px;
-    top: calc(var(--header-h) + 32px);
-    width: 2px; height: auto;
+    --size: 112px;
+    left: auto; right: 64px;
+    top: calc(var(--header-h) + 24px); bottom: 24px;
+    width: 3px; height: auto;
   }
   .dancer-progress { transform: scaleY(var(--p)); transform-origin: top; }
   .dancer {
-    --size: 68px;
     top: calc(var(--p) * (100% - var(--size)));
     left: 50%;
-    transform: translateX(calc(-50% + var(--sway)));
-    padding: 4px;
+    /* vaivén más corto: el margen lateral mide justo 128 px */
+    transform: translateX(calc(-50% + var(--sway) * .5));
   }
+  .dancer-frame { padding: 5px; }
 }
 
 /* ---------- Footer ---------- */

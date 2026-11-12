@@ -127,7 +127,7 @@
       var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
       rail.style.setProperty('--p', p.toFixed(4));
       // El "baile": un vaivén suave de lado a lado a medida que avanza (solo se desplaza; el logo no se rota ni se deforma).
-      var sway = reduceMotion.matches ? 0 : Math.sin(p * Math.PI * 16) * 10;
+      var sway = reduceMotion.matches ? 0 : Math.sin(p * Math.PI * 16) * 14;
       rail.style.setProperty('--sway', sway.toFixed(1) + 'px');
       dancerTick = false;
     };
