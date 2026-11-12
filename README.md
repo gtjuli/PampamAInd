@@ -30,5 +30,5 @@ Después abrí http://localhost:8000.
   - `servicio-1.jpg` … `servicio-4.jpg`
 
   En `index.html` hay un comentario TODO en cada lugar donde va un `<img>`.
-- **Logo SVG:** se usa `assets/logo-monocromatico.png`, el negativo en blanco del design system. Reemplazarlo por `logo-monocromatico.svg` cuando exista la versión vectorial.
+- **Logo:** el header usa el solo logotipo a color sobre placa pergamino (`assets/logo-wordmark.png`) y el footer la versión principal (`assets/logo-principal.jpg`), como indica el manual para fondos oscuros. Pasar a SVG cuando exista la versión vectorial.
 - **og:image:** falta una imagen para compartir en redes (1200×630, con URL absoluta).

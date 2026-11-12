@@ -39,9 +39,10 @@
   <!-- 6.2 Header -->
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <a class="logo" href="#top" aria-label="PampamAInd, volver al inicio">
-        <!-- Logo monocromático (negativo en blanco) del design system. TODO: reemplazar por assets/logo-monocromatico.svg cuando exista la versión vectorial. -->
-        <img src="assets/logo-monocromatico.png" alt="PampamAInd" width="141" height="48">
+      <a class="logo-plate" href="#top" aria-label="PampamAInd, volver al inicio">
+        <!-- Solo logotipo a color sobre placa pergamino: la versión que el manual de marca indica para
+             fondos oscuros y encabezados bajos. TODO: pasar a SVG cuando exista la versión vectorial. -->
+        <img src="assets/logo-wordmark.png" alt="PampamAInd" width="141" height="28">
       </a>
       <nav class="header-nav" aria-label="Principal">
         <a class="btn btn--secondary header-secondary" href="#quienes">¿Quiénes somos?</a>
@@ -57,7 +58,7 @@
   <!-- Menú overlay -->
   <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menú" hidden>
     <div class="menu-head">
-      <img src="assets/logo-monocromatico.png" alt="" width="141" height="48">
+      <span class="logo-plate" aria-hidden="true"><img src="assets/logo-wordmark.png" alt="" width="141" height="28"></span>
       <button class="btn btn--secondary" id="menuClose" type="button">
         <span class="close-icon" aria-hidden="true"></span>
         Cerrar
@@ -65,11 +66,11 @@
     </div>
     <nav class="menu-nav" aria-label="Secciones">
       <ol>
-        <li><a href="#servicios"><span class="menu-num">I.</span> Servicios</a></li>
-        <li><a href="#quienes"><span class="menu-num">II.</span> Quiénes somos</a></li>
-        <li><a href="#como"><span class="menu-num">III.</span> Cómo trabajamos</a></li>
-        <li><a href="#para-quien"><span class="menu-num">IV.</span> Para quién</a></li>
-        <li><a href="#contacto"><span class="menu-num">V.</span> Contacto</a></li>
+        <li><a href="#servicios"><span class="menu-num">i.</span> Servicios</a></li>
+        <li><a href="#quienes"><span class="menu-num">ii.</span> Quiénes somos</a></li>
+        <li><a href="#como"><span class="menu-num">iii.</span> Cómo trabajamos</a></li>
+        <li><a href="#para-quien"><span class="menu-num">iv.</span> Para quién</a></li>
+        <li><a href="#contacto"><span class="menu-num">v.</span> Contacto</a></li>
       </ol>
     </nav>
     <p class="menu-foot">Mitad campo, mitad ciudad</p>
@@ -117,27 +118,27 @@
     </section>
 
     <!-- 6.4 Marquesina -->
-    <div class="marquee" aria-label="Servicios: soporte informático, desarrollo web, aplicaciones a medida, automatización e IA.">
+    <div class="marquee" aria-label="Servicios: soporte informático, desarrollo web, aplicaciones a medida, automatización e inteligencia artificial.">
       <div class="marquee-track" aria-hidden="true">
         <div class="marquee-group">
           <span>Soporte informático</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Desarrollo web</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Aplicaciones a medida</span><span class="rombo rombo--noche rombo--l"></span>
-          <span>Automatización e IA</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Automatización e inteligencia artificial</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Soporte informático</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Desarrollo web</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Aplicaciones a medida</span><span class="rombo rombo--noche rombo--l"></span>
-          <span>Automatización e IA</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Automatización e inteligencia artificial</span><span class="rombo rombo--noche rombo--l"></span>
         </div>
         <div class="marquee-group">
           <span>Soporte informático</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Desarrollo web</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Aplicaciones a medida</span><span class="rombo rombo--noche rombo--l"></span>
-          <span>Automatización e IA</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Automatización e inteligencia artificial</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Soporte informático</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Desarrollo web</span><span class="rombo rombo--noche rombo--l"></span>
           <span>Aplicaciones a medida</span><span class="rombo rombo--noche rombo--l"></span>
-          <span>Automatización e IA</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Automatización e inteligencia artificial</span><span class="rombo rombo--noche rombo--l"></span>
         </div>
       </div>
     </div>
@@ -180,22 +181,22 @@
         <div class="servicios-grid" data-reveal-group>
           <!-- TODO: cada .ph se reemplaza por <img src="assets/servicio-N.jpg" alt="..." loading="lazy"> cuando existan -->
           <article class="servicio servicio--1">
-            <div class="servicio-media"><div class="servicio-inner ph ph--arena"></div><span class="servicio-num" aria-hidden="true">I</span></div>
+            <div class="servicio-media"><div class="servicio-inner ph ph--arena"></div><span class="servicio-num" aria-hidden="true">i</span></div>
             <div class="servicio-foot"><h3 class="h2">Soporte informático</h3><span class="body-s muted">Mantenimiento y ayuda</span></div>
             <p class="muted">Compus, mail, redes e impresoras que andan. Una persona que conoce tu caso.</p>
           </article>
           <article class="servicio servicio--2">
-            <div class="servicio-media"><div class="servicio-inner ph ph--bruma"></div><span class="servicio-num" aria-hidden="true">II</span></div>
+            <div class="servicio-media"><div class="servicio-inner ph ph--bruma"></div><span class="servicio-num" aria-hidden="true">ii</span></div>
             <div class="servicio-foot"><h3 class="h2">Desarrollo web</h3><span class="body-s muted">Sitios y presencia</span></div>
             <p class="muted">Una web simple, rápida y fácil de mantener, para que te encuentren y te escriban.</p>
           </article>
           <article class="servicio servicio--3">
-            <div class="servicio-media"><div class="servicio-inner ph ph--salvia"></div><span class="servicio-num" aria-hidden="true">III</span></div>
+            <div class="servicio-media"><div class="servicio-inner ph ph--salvia"></div><span class="servicio-num" aria-hidden="true">iii</span></div>
             <div class="servicio-foot"><h3 class="h2">Aplicaciones a medida</h3><span class="body-s muted">Herramientas propias</span></div>
             <p class="muted">Stock, pedidos, turnos o reportes: primero entendemos cómo trabajás.</p>
           </article>
           <article class="servicio servicio--4">
-            <div class="servicio-media"><div class="servicio-inner ph ph--cielo"></div><span class="servicio-num" aria-hidden="true">IV</span></div>
+            <div class="servicio-media"><div class="servicio-inner ph ph--cielo"></div><span class="servicio-num" aria-hidden="true">iv</span></div>
             <div class="servicio-foot"><h3 class="h2">Automatización e IA</h3><span class="body-s muted">Lo repetitivo, solo</span></div>
             <p class="muted">Inteligencia artificial que hace el trabajo pesado sin hacer ruido.</p>
           </article>
@@ -214,22 +215,22 @@
 
         <ol class="pasos" data-reveal-group>
           <li class="doble-marco"><div class="doble-marco-inner">
-            <span class="badge-num" aria-hidden="true">I</span>
+            <span class="badge-num" aria-hidden="true">i</span>
             <h3 class="h2">Escuchamos</h3>
             <p class="muted">Una charla para entender cómo trabaja tu negocio y dónde se pierde tiempo.</p>
           </div></li>
           <li class="doble-marco"><div class="doble-marco-inner">
-            <span class="badge-num" aria-hidden="true">II</span>
+            <span class="badge-num" aria-hidden="true">ii</span>
             <h3 class="h2">Proponemos</h3>
             <p class="muted">Alcance, plazo y precio claros. Si algo no conviene, te lo decimos.</p>
           </div></li>
           <li class="doble-marco"><div class="doble-marco-inner">
-            <span class="badge-num" aria-hidden="true">III</span>
+            <span class="badge-num" aria-hidden="true">iii</span>
             <h3 class="h2">Resolvemos</h3>
             <p class="muted">Implementamos en el plazo acordado. Si algo cambia, avisamos antes.</p>
           </div></li>
           <li class="doble-marco"><div class="doble-marco-inner">
-            <span class="badge-num" aria-hidden="true">IV</span>
+            <span class="badge-num" aria-hidden="true">iv</span>
             <h3 class="h2">Acompañamos</h3>
             <p class="muted">Te lo explicamos en criollo y seguimos cerca para lo que venga.</p>
           </div></li>
@@ -320,7 +321,11 @@
 
   <!-- 6.11 Footer -->
   <footer class="site-footer">
-    <p class="body-s muted">© 2026 PampamAInd · Tecnología simple para negocios de verdad.</p>
+    <div class="footer-brand">
+      <!-- Versión principal del logo, con su propio papel pergamino y filete. -->
+      <img src="assets/logo-principal.jpg" alt="PampamAInd" width="128" height="128" loading="lazy">
+      <p class="body-s muted">© 2026 PampamAInd · Tecnología simple para negocios de verdad.</p>
+    </div>
     <p class="footer-lema">Mitad campo, mitad ciudad</p>
     <a class="text-link footer-top" href="#top">Volver arriba <span aria-hidden="true">↑</span></a>
   </footer>

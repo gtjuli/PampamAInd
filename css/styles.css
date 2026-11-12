@@ -171,7 +171,8 @@ section[id], [id="top"] { scroll-margin-top: calc(var(--header-h) + 16px); }
   display: inline-grid; place-items: center;
   width: 60px; height: 60px;
   background: var(--trigo); color: var(--noche);
-  font: 400 36px/1 var(--font-display);
+  font: 400 40px/1 var(--font-display);
+  padding-bottom: 4px;
 }
 
 /* Etiqueta */
@@ -229,16 +230,26 @@ section[id], [id="top"] { scroll-margin-top: calc(var(--header-h) + 16px); }
   max-width: 1440px; margin: 0 auto; padding: 0 var(--margin);
   display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
 }
-.logo { display: block; line-height: 0; border-radius: var(--radius-s); }
-.logo img { height: 48px; width: auto; }
+/* Logo: solo logotipo a color sobre placa pergamino (manual de marca, "Fondos") */
+.logo-plate {
+  display: inline-block; flex: none; line-height: 0;
+  background: var(--pergamino);
+  padding: 14px 18px;
+  border-radius: var(--radius-0);
+}
+.logo-plate img { height: 28px; width: auto; }
+a.logo-plate { transition: transform .15s ease; }
+a.logo-plate:hover { transform: translateY(-1px); }
 .header-nav { display: flex; align-items: center; gap: var(--space-3); }
+.header-nav .btn { padding: 9px 18px; font-size: 15px; }
 .menu-icon { display: inline-grid; gap: 5px; width: 18px; }
 .menu-icon span { display: block; height: 2px; background: currentColor; }
 .menu-icon span:last-child { width: 12px; }
 
 @media (max-width: 640px) {
   .header-secondary { display: none; }
-  .logo img { height: 40px; }
+  .logo-plate { padding: 12px 14px; }
+  .logo-plate img { height: 24px; }
 }
 
 /* Menú overlay */
@@ -253,7 +264,7 @@ section[id], [id="top"] { scroll-margin-top: calc(var(--header-h) + 16px); }
 .menu-overlay[hidden] { display: none; }
 .menu-overlay.open { opacity: 1; }
 .menu-head { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; flex: none; }
-.menu-head img { height: 48px; width: auto; }
+
 .close-icon { position: relative; width: 14px; height: 14px; }
 .close-icon::before, .close-icon::after {
   content: ""; position: absolute; left: 50%; top: 50%; width: 18px; height: 2px;
@@ -269,7 +280,7 @@ section[id], [id="top"] { scroll-margin-top: calc(var(--header-h) + 16px); }
   transition: transform .2s ease;
 }
 .menu-nav a:hover { transform: translateX(8px); }
-.menu-num { color: var(--ink-muted); font-size: .6em; min-width: 1.6em; }
+.menu-num { color: var(--ink-muted); font-size: .6em; min-width: 1.25em; }
 .menu-foot { font: 400 32px/1 var(--font-display); color: var(--ink-muted); }
 
 /* ---------- 6.3 Hero ---------- */
@@ -368,7 +379,7 @@ section[id], [id="top"] { scroll-margin-top: calc(var(--header-h) + 16px); }
     margin-top: var(--space-8);
     text-align: center;
   }
-  .hero-arch-wrap { width: min(260px, 70vw); }
+  .hero-arch-wrap { width: min(210px, 56vw); }
   .hero-intro { justify-self: center; }
   .hero-actions { justify-self: stretch; flex-direction: column; align-items: stretch; }
   .hero-actions .btn { width: 100%; }
@@ -575,10 +586,14 @@ section[id], [id="top"] { scroll-margin-top: calc(var(--header-h) + 16px); }
   padding: 40px var(--margin);
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-6);
 }
+.footer-brand { display: flex; align-items: center; gap: var(--space-6); }
+.footer-brand img { width: 128px; height: auto; flex: none; }
+.footer-brand p { max-width: 22em; }
 .footer-lema { font: 400 32px/1 var(--font-display); text-align: center; }
 .footer-top { justify-self: end; }
 @media (max-width: 640px) {
   .site-footer { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .footer-brand { flex-direction: column; gap: var(--space-4); }
   .footer-top { justify-self: center; }
 }
 
