@@ -1,437 +1,330 @@
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PampamAInd · Tecnología simple para negocios de verdad</title>
-<meta name="description" content="Soporte, web, aplicaciones e inteligencia artificial para profesionales, comercios y pymes, en el campo y en la ciudad.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --noche:#111e42; --noche-2:#16224a; --noche-3:#1d2b58; --trigo:#d9a749; --cielo:#79a8cd; --cuero:#83665a;
-  --crema:#fbf6ee; --hueso:#eeeee4; --pergamino:#eee3c7; --piedra:#d5cdc3;
-  --surface:var(--crema); --surface-raised:#fffdf8; --surface-alt:var(--hueso);
-  --line:var(--piedra); --ink:var(--noche); --ink-muted:#6e5448;
-  --success:#3f6b3a; --error:#a63d2a; --link:#2f5f86; --focus:#2f5f86;
-  --on-dark:#f3ecdd; --on-dark-muted:#b9ad9f; --line-dark:#2a3558;
-  --font-display:"Grenze Gotisch", Georgia, serif;
-  --font-sans:"Source Sans 3","Source Sans Pro",system-ui,sans-serif;
-  --r:6px; --max:1200px;
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --surface:#0f1730; --surface-raised:#16203f; --surface-alt:#131c3a; --line:#2a3558; --ink:#f3ecdd; --ink-muted:#b9ad9f; --success:#8fc28a; --link:#8eb8da; --focus:#8eb8da; }
-}
-:root[data-theme="dark"] { --surface:#0f1730; --surface-raised:#16203f; --surface-alt:#131c3a; --line:#2a3558; --ink:#f3ecdd; --ink-muted:#b9ad9f; --success:#8fc28a; --link:#8eb8da; --focus:#8eb8da; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PampamAInd · Mitad campo, mitad ciudad</title>
+  <meta name="description" content="Consultora tecnológica para profesionales, comercios y pymes sin área de sistemas: soporte informático, desarrollo web, aplicaciones a medida y automatización con IA. Tecnología simple para negocios de verdad.">
+  <meta name="theme-color" content="#0f1730">
 
-*,*::before,*::after { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { margin:0; background:var(--surface); color:var(--ink); font:400 17px/26px var(--font-sans); -webkit-font-smoothing:antialiased; }
-img { display:block; max-width:100%; }
-:focus-visible { outline:2px solid var(--focus); outline-offset:3px; }
-.wrap { max-width:var(--max); margin:0 auto; padding:0 16px; }
-@media (min-width:720px) { .wrap { padding:0 40px; } }
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="PampamAInd">
+  <meta property="og:title" content="PampamAInd · Mitad campo, mitad ciudad">
+  <meta property="og:description" content="Soporte, web, aplicaciones e inteligencia artificial para negocios que no tienen un área de sistemas.">
+  <!-- TODO: agregar og:image con URL absoluta cuando haya una imagen para compartir (1200×630). -->
 
-.eyebrow { font:600 13px/16px var(--font-sans); letter-spacing:.18em; text-transform:uppercase; margin:0 0 16px; color:var(--ink-muted); }
-.dark { background:var(--noche); color:var(--on-dark); }
-.dark .eyebrow { color:var(--trigo); }
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-.btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 28px; border-radius:var(--r);
-  background:var(--trigo); color:var(--noche); font:700 17px/1 var(--font-sans); text-decoration:none; border:0; cursor:pointer;
-  transition:transform .15s ease, filter .15s ease; }
-.btn:hover { filter:brightness(1.06); transform:translateY(-1px); }
-.btn svg { width:18px; height:18px; }
-.btn-s { min-height:42px; padding:0 18px; font-size:15px; }
-.btn-ink { background:var(--noche); color:var(--crema); }
-
-/* Header */
-.top { position:sticky; top:0; z-index:30; background:var(--noche); border-bottom:1px solid var(--line-dark); }
-.top .wrap { height:76px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-.plate { background:var(--pergamino); padding:6px 10px; line-height:0; }
-.plate img { height:46px; width:auto; }
-
-/* Hero */
-.hero { padding:72px 0 0; overflow:hidden; text-align:center; }
-@media (min-width:900px) { .hero { padding-top:112px; } }
-.hero h1 { font:400 56px/56px var(--font-display); margin:0 auto 24px; max-width:15ch; }
-@media (min-width:720px) { .hero h1 { font-size:96px; line-height:92px; } }
-@media (min-width:1100px) { .hero h1 { font-size:120px; line-height:112px; } }
-.hero .sub { font-size:20px; line-height:30px; color:var(--on-dark-muted); max-width:36em; margin:0 auto 32px; }
-.hero .meta { display:block; margin-top:16px; font-size:15px; color:var(--on-dark-muted); }
-
-/* Producto en grande */
-.stage { position:relative; margin:64px auto 0; max-width:1040px; }
-.stage::before { content:""; position:absolute; left:-6%; right:-6%; top:18%; bottom:0;
-  background-image:radial-gradient(circle, var(--trigo) 30%, transparent 33%); background-size:16px 16px; opacity:.55;
-  -webkit-mask-image:linear-gradient(to bottom, #000 0%, transparent 85%); mask-image:linear-gradient(to bottom, #000 0%, transparent 85%); }
-.app { position:relative; background:var(--crema); color:var(--noche); border-radius:var(--r) var(--r) 0 0; border:1px solid #2a3558; border-bottom:0; text-align:left; overflow:hidden; }
-.app-bar { display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--piedra); background:#fffdf8; }
-.app-bar i { width:10px; height:10px; background:var(--piedra); display:block; }
-.app-bar span { margin-left:12px; font-size:14px; color:#6e5448; }
-.app-body { display:grid; grid-template-columns:1fr; gap:16px; padding:16px; }
-@media (min-width:760px) { .app-body { grid-template-columns:200px 1fr 1fr; padding:24px; gap:20px; } }
-.side { display:none; }
-@media (min-width:760px) { .side { display:block; border-right:1px solid var(--piedra); padding-right:16px; } }
-.side b { display:block; font:400 26px/1 var(--font-display); margin-bottom:20px; }
-.side a { display:flex; gap:10px; align-items:center; padding:8px 10px; color:var(--noche); text-decoration:none; font-size:15px; border-radius:2px; }
-.side a.on { background:var(--pergamino); font-weight:600; }
-.side svg { width:18px; height:18px; color:var(--cuero); }
-.panel { background:#fffdf8; border:1px solid var(--piedra); border-radius:var(--r); padding:16px; }
-.panel h4 { margin:0 0 12px; font:600 13px/16px var(--font-sans); letter-spacing:.14em; text-transform:uppercase; color:#6e5448; }
-.big { font:400 56px/1 var(--font-display); }
-.row { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 0; border-top:1px solid var(--hueso); font-size:15px; }
-.row:first-of-type { border-top:0; }
-.pill { font-size:13px; font-weight:600; padding:2px 8px; border-radius:2px; white-space:nowrap; }
-.ok { background:#e3ecdf; color:#3f6b3a; }
-.wait { background:#f6ead0; color:#7a5a17; }
-.bars { display:flex; align-items:flex-end; gap:8px; height:96px; margin-top:12px; }
-.bars span { flex:1; background:var(--cielo); transform-origin:bottom; animation:grow 1s ease both; }
-.bars span:last-child { background:var(--trigo); }
-@keyframes grow { from { transform:scaleY(0); } }
-.reveal-row { animation:slide .6s ease both; }
-@keyframes slide { from { opacity:0; transform:translateY(8px); } }
-@media (prefers-reduced-motion: reduce) { .bars span, .reveal-row { animation:none; } html { scroll-behavior:auto; } }
-.span2 { grid-column:auto; }
-@media (min-width:760px) { .span2 { grid-column:2 / 4; } }
-
-/* Franja de públicos */
-.who { border-top:1px solid var(--line-dark); }
-.who .wrap { display:flex; flex-wrap:wrap; justify-content:center; gap:12px 40px; padding-top:28px; padding-bottom:28px; color:var(--on-dark-muted); font-size:15px; }
-.who b { color:var(--on-dark); font-weight:600; }
-
-/* Filas alternadas */
-.feature { padding:80px 0; }
-@media (min-width:900px) { .feature { padding:128px 0; } }
-.feature + .feature { padding-top:0; }
-.f-row { display:grid; gap:40px; align-items:center; }
-@media (min-width:900px) { .f-row { grid-template-columns:1fr 1.1fr; gap:80px; } .f-row.flip > :first-child { order:2; } }
-.f-row h2 { font:800 40px/44px var(--font-sans); letter-spacing:-.01em; margin:0 0 20px; }
-@media (min-width:720px) { .f-row h2 { font-size:52px; line-height:56px; } }
-.f-row p { margin:0 0 24px; color:var(--ink-muted); font-size:19px; line-height:29px; max-width:30em; }
-.checks { list-style:none; padding:0; margin:0; display:grid; gap:12px; }
-.checks li { display:flex; gap:12px; align-items:flex-start; }
-.checks svg { width:22px; height:22px; flex:none; color:var(--success); margin-top:2px; }
-.tag { display:inline-block; margin-bottom:16px; font:600 13px/16px var(--font-sans); letter-spacing:.18em; text-transform:uppercase; color:var(--cuero); }
-
-.visual { position:relative; background:var(--surface-alt); border-radius:var(--r); padding:32px; min-height:360px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-.visual.cielo { background-color:var(--surface-alt); background-image:radial-gradient(circle, rgba(121,168,205,.55) 30%, transparent 33%); background-size:14px 14px; }
-.card { background:#fffdf8; color:var(--noche); border:1px solid var(--piedra); border-radius:var(--r); padding:20px; width:100%; max-width:380px; }
-
-/* chat */
-.chat { display:grid; gap:10px; }
-.msg { max-width:82%; padding:10px 14px; font-size:15px; line-height:21px; border-radius:var(--r); }
-.msg.in { background:var(--hueso); }
-.msg.out { background:var(--noche); color:var(--crema); justify-self:end; }
-.msg small { display:block; opacity:.7; font-size:12px; margin-top:4px; }
-/* web mock */
-.web .hd { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
-.web .hd b { font:400 24px/1 var(--font-display); }
-.web .img { height:120px; background:var(--pergamino); background-image:radial-gradient(circle, rgba(217,167,73,.7) 30%, transparent 33%); background-size:12px 12px; margin-bottom:16px; }
-.slots { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-.slots span { border:1px solid var(--piedra); text-align:center; padding:8px 0; font-size:14px; border-radius:2px; }
-.slots .sel { background:var(--noche); color:var(--crema); border-color:var(--noche); }
-/* flujo */
-.flow { display:grid; gap:12px; width:100%; max-width:400px; }
-.node { background:#fffdf8; color:var(--noche); border:1px solid var(--piedra); border-radius:var(--r); padding:14px 16px; display:flex; gap:12px; align-items:center; font-size:15px; }
-.node svg { width:22px; height:22px; color:var(--cuero); flex:none; }
-.node small { display:block; color:#6e5448; font-size:13px; }
-.arrow { height:20px; width:1px; background:var(--cuero); margin:-6px auto; }
-
-/* Pasos */
-.steps-band { padding:96px 0; }
-.steps-band h2 { font:400 48px/52px var(--font-display); margin:0 0 56px; max-width:14ch; }
-@media (min-width:720px) { .steps-band h2 { font-size:72px; line-height:72px; } }
-.steps { list-style:none; padding:0; margin:0; display:grid; gap:32px; counter-reset:s; }
-@media (min-width:800px) { .steps { grid-template-columns:repeat(3,1fr); } }
-.steps li { counter-increment:s; border-top:1px solid var(--line-dark); padding-top:24px; }
-.steps li::before { content:"0" counter(s); display:block; font:400 64px/1 var(--font-display); color:var(--trigo); margin-bottom:16px; }
-.steps h3 { font:600 22px/28px var(--font-sans); margin:0 0 8px; }
-.steps p { margin:0; color:var(--on-dark-muted); }
-
-/* Prueba */
-.proof { padding:96px 0; }
-.proof-grid { display:grid; gap:20px; }
-@media (min-width:900px) { .proof-grid { grid-template-columns:1fr 1fr 1fr; } }
-.stat { border:1px solid var(--cuero); padding:8px; }
-.stat > div { border:1px solid var(--cuero); padding:32px 24px; height:100%; }
-.stat .n { font:400 80px/1 var(--font-display); }
-.stat p { margin:12px 0 0; color:var(--ink-muted); }
-blockquote { margin:0; background:var(--surface-raised); border:1px solid var(--line); border-radius:var(--r); padding:28px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; }
-blockquote p { margin:0; font-size:20px; line-height:30px; }
-blockquote footer { font-size:15px; color:var(--ink-muted); }
-.todo { margin-top:16px; font:600 13px/16px var(--font-sans); letter-spacing:.12em; text-transform:uppercase; color:var(--error); }
-.h2s { font:800 40px/44px var(--font-sans); letter-spacing:-.01em; margin:0 0 40px; }
-@media (min-width:720px) { .h2s { font-size:52px; line-height:56px; } }
-
-/* FAQ */
-.faq { padding:0 0 96px; }
-.faq .grid { display:grid; gap:24px; }
-@media (min-width:900px) { .faq .grid { grid-template-columns:1fr 2fr; gap:80px; } }
-details { border-bottom:1px solid var(--line); }
-details:first-of-type { border-top:1px solid var(--line); }
-summary { list-style:none; cursor:pointer; padding:20px 0; font:600 20px/28px var(--font-sans); display:flex; justify-content:space-between; gap:16px; }
-summary::-webkit-details-marker { display:none; }
-summary::after { content:"+"; font-weight:400; font-size:28px; color:var(--cuero); }
-details[open] summary::after { content:"–"; }
-details p { margin:0 0 20px; color:var(--ink-muted); max-width:44em; }
-
-/* Cierre */
-.close { padding:96px 0; }
-.close .wrap { display:grid; gap:48px; align-items:center; }
-@media (min-width:900px) { .close .wrap { grid-template-columns:1.1fr 1fr; } }
-.close h2 { font:400 56px/56px var(--font-display); margin:0 0 20px; }
-@media (min-width:720px) { .close h2 { font-size:88px; line-height:84px; } }
-.close .sub { color:var(--on-dark-muted); font-size:20px; line-height:30px; margin:0; max-width:28em; }
-.form { background:var(--crema); color:var(--noche); border-radius:var(--r); padding:28px; }
-@media (min-width:720px) { .form { padding:40px; } }
-.form h3 { margin:0 0 24px; font:700 26px/32px var(--font-sans); }
-.field { display:grid; gap:6px; margin-bottom:16px; }
-.field label { font-weight:600; font-size:15px; }
-.field input, .field select { font:400 17px/24px var(--font-sans); color:var(--noche); background:#fffdf8; border:1px solid var(--piedra); border-radius:2px; min-height:52px; padding:12px; width:100%; }
-.field input:focus, .field select:focus { outline:2px solid #2f5f86; outline-offset:0; }
-.field input[aria-invalid="true"] { border-color:#a63d2a; }
-.err { color:#a63d2a; font-size:14px; }
-.form .btn { width:100%; margin-top:8px; background:var(--noche); color:var(--crema); }
-.legal { font-size:13px; line-height:18px; color:#6e5448; margin:16px 0 0; }
-.thanks { display:none; }
-.form.done form { display:none; }
-.form.done .thanks { display:block; }
-.thanks svg { width:36px; height:36px; color:#3f6b3a; margin-bottom:16px; }
-
-footer.site { background:var(--noche); color:var(--on-dark-muted); border-top:1px solid var(--line-dark); padding:28px 0; font-size:14px; }
-footer.site .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; }
-footer.site i { font:400 20px/1 var(--font-display); color:var(--on-dark); font-style:normal; }
-
-.mobile-cta { position:fixed; left:0; right:0; bottom:0; z-index:40; padding:12px 16px; background:var(--noche); border-top:1px solid var(--line-dark); transform:translateY(110%); transition:transform .25s ease; }
-.mobile-cta .btn { width:100%; }
-.mobile-cta.show { transform:none; }
-@media (min-width:720px) { .mobile-cta { display:none; } }
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<header class="top">
-  <div class="wrap">
-    <span class="plate"><img src="assets/pampamaind-horizontal.png" alt="PampamAInd" width="640" height="218"></span>
-    <a class="btn btn-s" href="#contacto" data-cta="header">Contanos tu caso</a>
+  <!-- 6.1 Barra de anuncio -->
+  <div class="announce" id="top">
+    <p class="announce-text">
+      <span class="rombo rombo--noche rombo--s" aria-hidden="true"></span>
+      <span>Soporte · Web · Aplicaciones · Inteligencia artificial</span>
+      <span class="rombo rombo--noche rombo--s" aria-hidden="true"></span>
+      <span>Respondemos en el día hábil</span>
+      <span class="rombo rombo--noche rombo--s" aria-hidden="true"></span>
+    </p>
   </div>
-</header>
 
-<main>
-  <!-- HERO: titular gigante + producto en acción -->
-  <section class="hero dark">
-    <div class="wrap">
-      <p class="eyebrow">Mitad campo, mitad ciudad</p>
-      <h1>Tecnología simple para negocios de verdad.</h1>
-      <p class="sub">Soporte, web, aplicaciones e inteligencia artificial en un solo lugar. Te resolvemos el problema, te lo explicamos en criollo y te dejamos una herramienta que vas a usar.</p>
-      <a class="btn" href="#contacto" data-cta="hero">Contanos tu caso
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-      <span class="meta">Primera charla sin costo · Respondemos en el día</span>
+  <!-- 6.2 Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="PampamAInd, volver al inicio">
+        <!-- Logo monocromático (negativo en blanco) del design system. TODO: reemplazar por assets/logo-monocromatico.svg cuando exista la versión vectorial. -->
+        <img src="assets/logo-monocromatico.png" alt="PampamAInd" width="141" height="48">
+      </a>
+      <nav class="header-nav" aria-label="Principal">
+        <a class="btn btn--secondary header-secondary" href="#quienes">¿Quiénes somos?</a>
+        <a class="btn btn--secondary header-secondary" href="#contacto">Pedir propuesta</a>
+        <button class="btn btn--secondary menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="menuOverlay">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+          Menú
+        </button>
+      </nav>
+    </div>
+  </header>
 
-      <div class="stage" aria-label="Ejemplo de un panel a medida: turnos, stock y parte del campo en una sola pantalla." role="img">
-        <div class="app" aria-hidden="true">
-          <div class="app-bar"><i></i><i></i><i></i><span>Panel del negocio · hecho a medida</span></div>
-          <div class="app-body">
-            <nav class="side">
-              <b>Tu negocio</b>
-              <a class="on" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>Resumen</a>
-              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg>Turnos</a>
-              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></svg>Stock</a>
-              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18M6 20V10M12 20V4M18 20v-7"/></svg>Reportes</a>
-            </nav>
-            <div class="panel">
-              <h4>Turnos de hoy</h4>
-              <div class="row reveal-row" style="animation-delay:.1s"><span>09:00 · Consulta</span><span class="pill ok">Confirmado</span></div>
-              <div class="row reveal-row" style="animation-delay:.3s"><span>10:30 · Control</span><span class="pill ok">Confirmado</span></div>
-              <div class="row reveal-row" style="animation-delay:.5s"><span>12:00 · Primera vez</span><span class="pill wait">Esperando</span></div>
-            </div>
-            <div class="panel">
-              <h4>Horas ahorradas en la semana</h4>
-              <div class="big">6 h</div>
-              <div class="bars"><span style="height:30%"></span><span style="height:45%;animation-delay:.1s"></span><span style="height:40%;animation-delay:.2s"></span><span style="height:62%;animation-delay:.3s"></span><span style="height:88%;animation-delay:.4s"></span></div>
-            </div>
-            <div class="panel span2">
-              <h4>Parte del campo · llegó solo a la oficina</h4>
-              <div class="row"><span>Lote 4 · lluvia</span><b>18 mm</b></div>
-              <div class="row"><span>Acopio · entregas del día</span><b>3 camiones</b></div>
+  <!-- Menú overlay -->
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+    <div class="menu-head">
+      <img src="assets/logo-monocromatico.png" alt="" width="141" height="48">
+      <button class="btn btn--secondary" id="menuClose" type="button">
+        <span class="close-icon" aria-hidden="true"></span>
+        Cerrar
+      </button>
+    </div>
+    <nav class="menu-nav" aria-label="Secciones">
+      <ol>
+        <li><a href="#servicios"><span class="menu-num">I.</span> Servicios</a></li>
+        <li><a href="#quienes"><span class="menu-num">II.</span> Quiénes somos</a></li>
+        <li><a href="#como"><span class="menu-num">III.</span> Cómo trabajamos</a></li>
+        <li><a href="#para-quien"><span class="menu-num">IV.</span> Para quién</a></li>
+        <li><a href="#contacto"><span class="menu-num">V.</span> Contacto</a></li>
+      </ol>
+    </nav>
+    <p class="menu-foot">Mitad campo, mitad ciudad</p>
+  </div>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- 6.3 Hero -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <h1 class="hero-title" id="heroTitle">
+        <span class="hero-l1">Mitad campo,</span>
+        <span class="hero-l2">mitad ciudad</span>
+      </h1>
+
+      <div class="hero-foot">
+        <div class="hero-intro">
+          <p class="eyebrow">Consultora tecnológica</p>
+          <p class="h3">Soporte, web, aplicaciones e inteligencia artificial para negocios que no tienen un área de sistemas.</p>
+        </div>
+
+        <div class="hero-arch-wrap">
+          <div class="hero-arch" id="heroArch">
+            <!-- TODO: cuando exista assets/hero.jpg, reemplazar el bloque .art por:
+                 <img src="assets/hero.jpg" alt="[describir la foto]" width="360" height="520"> -->
+            <div class="art art--campo-ciudad" role="img" aria-label="Ilustración: a la izquierda el campo con surcos, a la derecha la ciudad con edificios, y el sol en el medio.">
+              <span class="art-sun"></span>
+              <span class="art-furrows"></span>
+              <span class="art-city">
+                <i style="--h:46%;--w:16%;--x:6%"></i>
+                <i style="--h:64%;--w:14%;--x:25%"></i>
+                <i style="--h:38%;--w:12%;--x:42%"></i>
+                <i style="--h:78%;--w:16%;--x:57%"></i>
+                <i style="--h:52%;--w:14%;--x:78%"></i>
+              </span>
+              <span class="art-horizon"></span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="who"><div class="wrap">
-      <span>Para <b>profesionales</b></span><span><b>Comercios</b> de barrio</span><span><b>Pymes</b> y empresas del agro</span><span>Sin área de sistemas</span>
-    </div></div>
-  </section>
 
-  <!-- FILAS ALTERNADAS: beneficio + producto en acción -->
-  <section class="feature">
-    <div class="wrap f-row">
-      <div>
-        <span class="tag">Soporte informático</span>
-        <h2>¿Se te cayó el sistema? Lo vemos hoy.</h2>
-        <p>Tu compu, tu mail y tu red andando. Te atiende una persona que conoce tu caso, no un call center.</p>
-        <ul class="checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg>Respuesta en el día hábil</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg>Remoto o en persona, campo y ciudad</li>
-        </ul>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#contacto">Contanos qué necesitás</a>
+          <a class="text-link" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
+        </div>
       </div>
-      <div class="visual cielo" aria-hidden="true">
-        <div class="card chat">
-          <div class="msg in">Hola, no me anda la impresora de facturas<small>09:12</small></div>
-          <div class="msg out">Hola Marta, ya me conecto y lo vemos.<small>09:14</small></div>
-          <div class="msg out">Listo, quedó andando. Era el controlador.<small>09:31</small></div>
-          <div class="msg in">¡Gracias! Salvaron la mañana.<small>09:32</small></div>
+    </section>
+
+    <!-- 6.4 Marquesina -->
+    <div class="marquee" aria-label="Servicios: soporte informático, desarrollo web, aplicaciones a medida, automatización e IA.">
+      <div class="marquee-track" aria-hidden="true">
+        <div class="marquee-group">
+          <span>Soporte informático</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Desarrollo web</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Aplicaciones a medida</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Automatización e IA</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Soporte informático</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Desarrollo web</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Aplicaciones a medida</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Automatización e IA</span><span class="rombo rombo--noche rombo--l"></span>
+        </div>
+        <div class="marquee-group">
+          <span>Soporte informático</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Desarrollo web</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Aplicaciones a medida</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Automatización e IA</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Soporte informático</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Desarrollo web</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Aplicaciones a medida</span><span class="rombo rombo--noche rombo--l"></span>
+          <span>Automatización e IA</span><span class="rombo rombo--noche rombo--l"></span>
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="feature">
-    <div class="wrap f-row flip">
-      <div>
-        <span class="tag">Desarrollo web</span>
-        <h2>Clientes que te encuentran y reservan solos.</h2>
-        <p>Una página simple, rápida y fácil de actualizar, con turnos o pedidos online. Vos atendés, la web agenda.</p>
-        <ul class="checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg>Se ve bien en el celular</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg>Confirmaciones automáticas por WhatsApp</li>
-        </ul>
-      </div>
-      <div class="visual" aria-hidden="true">
-        <div class="card web">
-          <div class="hd"><b>Estudio Ruiz</b><span class="pill ok">Online</span></div>
-          <div class="img"></div>
-          <p style="margin:0 0 10px;font-weight:600;font-size:15px;color:var(--noche)">Elegí tu horario · jueves 14</p>
-          <div class="slots"><span>09:00</span><span class="sel">10:30</span><span>12:00</span><span>15:00</span><span>16:30</span><span>18:00</span></div>
+    <!-- 6.5 Quiénes somos -->
+    <section class="section quienes" id="quienes" aria-labelledby="quienesTitle">
+      <div class="container quienes-grid">
+        <div class="quienes-text" data-reveal-group>
+          <p class="eyebrow">Quiénes somos</p>
+          <h2 class="display-xl quienes-title" id="quienesTitle">
+            <span class="ink">Primero entendemos cómo trabajás.</span>
+            <span class="enciende" id="enciende">Después proponemos.</span>
+          </h2>
+          <p class="capitular-p">PampamAInd junta tres cosas: la pampa, el origen y la palabra que vale; el AI escondido en el medio, la tecnología que hace el trabajo pesado sin hacer ruido; y la cabeza puesta en resolver.</p>
+          <ul class="valores">
+            <li><strong>Palabra que se cumple.</strong> Lo que decimos en la propuesta es lo que entregamos, en el plazo que dijimos.</li>
+            <li><strong>Simple antes que impresionante.</strong> La solución que vas a usar todos los días.</li>
+            <li><strong>Cerca.</strong> Una persona que conoce tu caso y responde en el día.</li>
+          </ul>
+        </div>
+
+        <div class="quienes-art reveal" aria-hidden="true">
+          <span class="qa-disc"></span>
+          <!-- TODO: reemplazar por <img src="assets/equipo.jpg" alt="..." loading="lazy"> cuando exista -->
+          <span class="qa-arch-l ph ph--arena"></span>
+          <!-- TODO: reemplazar por <img src="assets/trabajo.jpg" alt="..." loading="lazy"> cuando exista -->
+          <span class="qa-arch-s ph ph--salvia"></span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="feature">
-    <div class="wrap f-row">
-      <div>
-        <span class="tag">Aplicaciones y automatización con IA</span>
-        <h2>Lo que hacés a mano, que se haga solo.</h2>
-        <p>Stock, pedidos, reportes y respuestas. Usamos inteligencia artificial donde ahorra tiempo de verdad, y te decimos cuánto.</p>
-        <ul class="checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg>Hecho a medida de cómo trabajás</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg>Te enseñamos a usarlo</li>
-        </ul>
-      </div>
-      <div class="visual cielo" aria-hidden="true">
-        <div class="flow">
-          <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 2h10v20H7zM11 18h2"/></svg><div>El encargado manda el parte<small>Audio de WhatsApp desde el campo</small></div></div>
-          <div class="arrow"></div>
-          <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h11M4 12h7M4 17h11M17 4l3 3-3 3"/></svg><div>La IA lo pasa a planilla<small>Lote, lluvia, entregas, novedades</small></div></div>
-          <div class="arrow"></div>
-          <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18M6 20V10M12 20V4M18 20v-7"/></svg><div>Llega el reporte a la oficina<small>Todos los días a las 18 h</small></div></div>
+    <!-- 6.6 Servicios -->
+    <section class="section servicios" id="servicios" aria-labelledby="serviciosTitle">
+      <div class="container">
+        <header class="servicios-head reveal">
+          <h2 class="display-hero servicios-title" id="serviciosTitle">Servicios</h2>
+          <p class="muted servicios-sub">Todo en un solo lugar. Elegimos la solución que tu negocio va a usar todos los días.</p>
+        </header>
+
+        <div class="servicios-grid" data-reveal-group>
+          <!-- TODO: cada .ph se reemplaza por <img src="assets/servicio-N.jpg" alt="..." loading="lazy"> cuando existan -->
+          <article class="servicio servicio--1">
+            <div class="servicio-media"><div class="servicio-inner ph ph--arena"></div><span class="servicio-num" aria-hidden="true">I</span></div>
+            <div class="servicio-foot"><h3 class="h2">Soporte informático</h3><span class="body-s muted">Mantenimiento y ayuda</span></div>
+            <p class="muted">Compus, mail, redes e impresoras que andan. Una persona que conoce tu caso.</p>
+          </article>
+          <article class="servicio servicio--2">
+            <div class="servicio-media"><div class="servicio-inner ph ph--bruma"></div><span class="servicio-num" aria-hidden="true">II</span></div>
+            <div class="servicio-foot"><h3 class="h2">Desarrollo web</h3><span class="body-s muted">Sitios y presencia</span></div>
+            <p class="muted">Una web simple, rápida y fácil de mantener, para que te encuentren y te escriban.</p>
+          </article>
+          <article class="servicio servicio--3">
+            <div class="servicio-media"><div class="servicio-inner ph ph--salvia"></div><span class="servicio-num" aria-hidden="true">III</span></div>
+            <div class="servicio-foot"><h3 class="h2">Aplicaciones a medida</h3><span class="body-s muted">Herramientas propias</span></div>
+            <p class="muted">Stock, pedidos, turnos o reportes: primero entendemos cómo trabajás.</p>
+          </article>
+          <article class="servicio servicio--4">
+            <div class="servicio-media"><div class="servicio-inner ph ph--cielo"></div><span class="servicio-num" aria-hidden="true">IV</span></div>
+            <div class="servicio-foot"><h3 class="h2">Automatización e IA</h3><span class="body-s muted">Lo repetitivo, solo</span></div>
+            <p class="muted">Inteligencia artificial que hace el trabajo pesado sin hacer ruido.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PASOS -->
-  <section class="steps-band dark">
-    <div class="wrap">
-      <p class="eyebrow">Cómo trabajamos</p>
-      <h2>Tres pasos, sin vueltas.</h2>
-      <ol class="steps">
-        <li><h3>Nos contás tu caso</h3><p>Una charla corta y sin costo. Te preguntamos cómo trabajás antes de proponer nada.</p></li>
-        <li><h3>Te pasamos una propuesta clara</h3><p>Qué incluye, qué no, cuánto cuesta y cuándo queda. Si algo no conviene, te lo decimos.</p></li>
-        <li><h3>Te lo dejamos andando</h3><p>Lo instalamos, te enseñamos a usarlo y seguimos cerca para lo que venga.</p></li>
-      </ol>
-    </div>
-  </section>
+    <!-- 6.7 Cómo trabajamos -->
+    <section class="section section--alt como" id="como" aria-labelledby="comoTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Cómo trabajamos</p>
+          <h2 class="display-l" id="comoTitle">Por el camino más corto</h2>
+          <p class="h3 muted">Como el baqueano: conocemos el terreno y no hacemos alarde de saberlo.</p>
+        </header>
 
-  <!-- PRUEBA -->
-  <section class="proof">
-    <div class="wrap">
-      <p class="eyebrow">Palabra que se cumple</p>
-      <h2 class="h2s">Lo que dicen quienes ya trabajan con nosotros</h2>
-      <div class="proof-grid">
-        <div class="stat"><div><div class="n">24 h</div><p>Respondemos cada consulta en el día hábil. Siempre una persona.</p></div></div>
-        <blockquote><p>“[Testimonio real: qué problema tenía y qué cambió después.]”</p><footer><b>Nombre Apellido</b> · Rubro, localidad</footer></blockquote>
-        <blockquote><p>“[Testimonio real: qué problema tenía y qué cambió después.]”</p><footer><b>Nombre Apellido</b> · Rubro, localidad</footer></blockquote>
+        <ol class="pasos" data-reveal-group>
+          <li class="doble-marco"><div class="doble-marco-inner">
+            <span class="badge-num" aria-hidden="true">I</span>
+            <h3 class="h2">Escuchamos</h3>
+            <p class="muted">Una charla para entender cómo trabaja tu negocio y dónde se pierde tiempo.</p>
+          </div></li>
+          <li class="doble-marco"><div class="doble-marco-inner">
+            <span class="badge-num" aria-hidden="true">II</span>
+            <h3 class="h2">Proponemos</h3>
+            <p class="muted">Alcance, plazo y precio claros. Si algo no conviene, te lo decimos.</p>
+          </div></li>
+          <li class="doble-marco"><div class="doble-marco-inner">
+            <span class="badge-num" aria-hidden="true">III</span>
+            <h3 class="h2">Resolvemos</h3>
+            <p class="muted">Implementamos en el plazo acordado. Si algo cambia, avisamos antes.</p>
+          </div></li>
+          <li class="doble-marco"><div class="doble-marco-inner">
+            <span class="badge-num" aria-hidden="true">IV</span>
+            <h3 class="h2">Acompañamos</h3>
+            <p class="muted">Te lo explicamos en criollo y seguimos cerca para lo que venga.</p>
+          </div></li>
+        </ol>
       </div>
-      <p class="todo">Espacio para testimonios reales · completar antes de publicar</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section class="faq">
-    <div class="wrap grid">
-      <div><p class="eyebrow">Preguntas frecuentes</p><h2 class="h2s">Antes de que preguntes</h2></div>
-      <div>
-        <details><summary>¿Cuánto cuesta?</summary><p>Depende de lo que necesites. Después de la primera charla, sin costo, te mandamos una propuesta con precio total, forma de pago y validez. Sin letra chica.</p></details>
-        <details><summary>¿En cuánto tiempo queda andando?</summary><p>Un arreglo de soporte, normalmente en el día. Una página web, entre dos y cuatro semanas. Una aplicación o automatización, según el alcance: el plazo va escrito en la propuesta y lo cumplimos.</p></details>
-        <details><summary>¿Trabajan en el campo o solo en la ciudad?</summary><p>En los dos. Atendemos de forma remota en todo el país y vamos en persona cuando hace falta.</p></details>
-        <details><summary>No sé nada de tecnología, ¿me sirve igual?</summary><p>Justamente para eso estamos. Te explicamos todo en criollo y te dejamos una herramienta que vas a poder usar sin volverte experto.</p></details>
-        <details><summary>¿Cómo se paga?</summary><p>Transferencia o factura según tu caso. En proyectos grandes, por etapas: se paga a medida que se entrega.</p></details>
-      </div>
-    </div>
-  </section>
+    <!-- 6.8 Antes / después -->
+    <section class="section antes-despues" aria-labelledby="adTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 class="display-l" id="adTitle">Del parche a la solución</h2>
+          <p class="h3 muted">Lo que cambia cuando la tecnología trabaja para tu negocio.</p>
+        </header>
 
-  <!-- CIERRE + FORMULARIO -->
-  <section class="close dark" id="contacto">
-    <div class="wrap">
-      <div>
-        <p class="eyebrow">Primera charla sin costo</p>
-        <h2>Contanos qué necesitás.</h2>
-        <p class="sub">Dejanos tres datos y te escribimos en el día para entender tu caso. Sin compromiso, y te responde una persona.</p>
-      </div>
-      <div class="form" id="formBox" aria-live="polite">
-        <form id="leadForm" novalidate>
-          <h3>Contanos tu caso</h3>
-          <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required><span class="err" id="e-nombre"></span></div>
-          <div class="field"><label for="f-contacto">WhatsApp o mail</label><input id="f-contacto" name="contacto" autocomplete="email" required><span class="err" id="e-contacto"></span></div>
-          <div class="field"><label for="f-tema">¿Qué necesitás?</label>
-            <select id="f-tema" name="tema">
-              <option>Que algo vuelva a andar (soporte)</option><option>Una página web</option><option>Una aplicación a medida</option><option>Automatizar tareas / IA</option><option>Todavía no sé, quiero charlarlo</option>
-            </select></div>
-          <button class="btn" type="submit">Contanos tu caso</button>
-          <p class="legal">Usamos tus datos solo para responderte. No los compartimos con nadie.</p>
-        </form>
-        <div class="thanks" id="thanks" tabindex="-1">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M4 12.5l5 5L20 6.5"/></svg>
-          <h3>¡Gracias, <span id="t-nombre"></span>! Ya nos llegó tu caso.</h3>
-          <p>Te escribimos hoy mismo por el medio que nos dejaste. Mientras tanto, pensá en la tarea que más tiempo te come en la semana: por ahí empieza la charla.</p>
+        <div class="ad-grid" data-reveal-group>
+          <div class="ad-card ad-card--antes">
+            <h3 class="h2 ad-title ad-title--error"><span aria-hidden="true">✕</span> Sin un área de sistemas</h3>
+            <ul class="ad-list">
+              <li>La compu falla y nadie sabe por qué.</li>
+              <li>Planillas por todos lados que nadie actualiza.</li>
+              <li>Horas en tareas que se repiten.</li>
+              <li>Proveedores que hablan en difícil.</li>
+            </ul>
+          </div>
+          <div class="ad-card ad-card--despues">
+            <h3 class="h2 ad-title"><span class="check" aria-hidden="true">✓</span> Con PampamAInd</h3>
+            <ul class="ad-list">
+              <li>Una persona que conoce tu caso y responde en el día.</li>
+              <li>Datos ordenados y reportes que llegan solos.</li>
+              <li>Lo repetitivo, automatizado.</li>
+              <li>Todo explicado en criollo.</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<footer class="site"><div class="wrap"><i>Herramientas a medida, atención de cerca.</i><span>© 2026 PampamAInd · Soporte, web, aplicaciones e IA</span></div></footer>
-<div class="mobile-cta" id="mobileCta"><a class="btn" href="#contacto" data-cta="sticky">Contanos tu caso</a></div>
+    <!-- 6.9 Para quién -->
+    <section class="section section--alt para-quien" id="para-quien" aria-labelledby="pqTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Para quién</p>
+          <h2 class="display-l" id="pqTitle">Negocios de verdad</h2>
+        </header>
 
-<script>
-(function () {
-  var form = document.getElementById('leadForm'), box = document.getElementById('formBox');
-  function track(n, d) { try { if (window.gtag) gtag('event', n, d || {}); } catch (_) {} }
-  function setErr(id, msg) { var i = document.getElementById('f-' + id); document.getElementById('e-' + id).textContent = msg; i.setAttribute('aria-invalid', msg ? 'true' : 'false'); return !msg; }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var n = form.nombre.value.trim(), c = form.contacto.value.trim();
-    var okN = setErr('nombre', n ? '' : 'Decinos cómo te llamás.');
-    var okC = setErr('contacto', (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c) || c.replace(/\D/g, '').length >= 8) ? '' : 'Dejanos un WhatsApp o un mail válido.');
-    if (!okN || !okC) { (okN ? form.contacto : form.nombre).focus(); return; }
-    /* --- envío real acá (CRM, Brevo, Formspree...) --- */
-    track('lead_submit', { tema: form.tema.value });
-    document.getElementById('t-nombre').textContent = n.split(' ')[0];
-    box.classList.add('done'); document.getElementById('thanks').focus();
-  });
-  document.querySelectorAll('[data-cta]').forEach(function (a) { a.addEventListener('click', function () { track('cta_click', { ubicacion: a.dataset.cta }); }); });
-  var bar = document.getElementById('mobileCta'), hb = document.querySelector('[data-cta="hero"]'), ct = document.getElementById('contacto');
-  if ('IntersectionObserver' in window) {
-    var h = true, f = false, u = function () { bar.classList.toggle('show', !h && !f); };
-    new IntersectionObserver(function (e) { h = e[0].isIntersecting; u(); }).observe(hb);
-    new IntersectionObserver(function (e) { f = e[0].isIntersecting; u(); }, { threshold: .15 }).observe(ct);
-  }
-})();
-</script>
+        <div class="pq-grid" data-reveal-group>
+          <article class="pq-card">
+            <span class="tag">Profesionales</span>
+            <h3 class="h2">El profesional independiente</h3>
+            <p class="muted">Contadores, abogadas, arquitectos, consultorios.</p>
+            <span class="separador separador--s" aria-hidden="true"><i></i><span class="rombo"></span><i></i></span>
+            <p class="h3">“Dejá de perder la mañana en lo administrativo.”</p>
+          </article>
+          <article class="pq-card">
+            <span class="tag">Comercios</span>
+            <h3 class="h2">El comercio de barrio</h3>
+            <p class="muted">Locales, distribuidoras, gastronomía.</p>
+            <span class="separador separador--s" aria-hidden="true"><i></i><span class="rombo"></span><i></i></span>
+            <p class="h3">“Te armamos lo justo para que vendas más y te equivoques menos.”</p>
+          </article>
+          <article class="pq-card">
+            <span class="tag">Agro y pymes</span>
+            <h3 class="h2">La pyme o empresa del agro</h3>
+            <p class="muted">Campo, acopio, contratistas, empresas familiares.</p>
+            <span class="separador separador--s" aria-hidden="true"><i></i><span class="rombo"></span><i></i></span>
+            <p class="h3">“Que la información del campo llegue sola a la oficina.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.10 Contacto -->
+    <section class="section contacto" id="contacto" aria-labelledby="contactoTitle">
+      <div class="container contacto-inner" data-reveal-group>
+        <p class="eyebrow">Contacto</p>
+        <h2 class="display-hero contacto-title" id="contactoTitle">Hablemos</h2>
+        <span class="separador separador--l" aria-hidden="true"><i></i><span class="rombo"></span><i></i></span>
+        <p class="h3 muted contacto-sub">Contanos qué te está frenando y te respondemos en el día hábil con una propuesta concreta.</p>
+        <div class="contacto-actions">
+          <!-- TODO: confirmar con Juli el mail de contacto (hola@pampamaind.com es un placeholder). -->
+          <a class="btn btn--primary" href="mailto:hola@pampamaind.com?subject=Pedido%20de%20propuesta">Pedir propuesta</a>
+          <a class="btn btn--secondary" href="#como">Ver cómo trabajamos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6.11 Footer -->
+  <footer class="site-footer">
+    <p class="body-s muted">© 2026 PampamAInd · Tecnología simple para negocios de verdad.</p>
+    <p class="footer-lema">Mitad campo, mitad ciudad</p>
+    <a class="text-link footer-top" href="#top">Volver arriba <span aria-hidden="true">↑</span></a>
+  </footer>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
