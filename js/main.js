@@ -121,6 +121,7 @@
   var dancer = doc.getElementById('dancer');
   if (rail && dancer) {
     var stopTimer = null;
+    var hideTimer = null;
     var dancerTick = false;
     var updateDancer = function () {
       var max = doc.documentElement.scrollHeight - window.innerHeight;
@@ -133,6 +134,10 @@
     };
     var onDancerScroll = function () {
       if (!dancerTick) { dancerTick = true; window.requestAnimationFrame(updateDancer); }
+      // En celular la pareja solo aparece mientras se hace scroll (ver CSS).
+      rail.classList.add('is-scrolling');
+      window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(function () { rail.classList.remove('is-scrolling'); }, 900);
       if (reduceMotion.matches) return;
       dancer.classList.add('is-moving');
       window.clearTimeout(stopTimer);

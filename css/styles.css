@@ -654,6 +654,12 @@ section[id], #top { scroll-margin-top: calc(var(--header-h) + 8px); }
 @keyframes dancer-step { to { transform: translateY(-10px); } }
 body.no-scroll .dancer-rail { opacity: 0; }
 
+/* Celular: se esconde cuando dejás de hacer scroll, para no tapar el texto */
+@media (max-width: 640px) {
+  .dancer-rail { opacity: 0; transform: translateY(16px); transition: opacity .35s ease, transform .35s ease; }
+  .dancer-rail.is-scrolling { opacity: 1; transform: none; }
+  body.no-scroll .dancer-rail.is-scrolling { opacity: 0; }
+}
 @media (min-width: 641px) { .dancer-rail { --size: 84px; } }
 
 /* Escritorio ancho: riel vertical en el margen derecho, de arriba a abajo */
