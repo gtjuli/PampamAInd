@@ -23,7 +23,8 @@ Después abrí http://localhost:8000.
 
 ## Pendientes (TODO en el código)
 
-- **Mail de contacto:** `hola@pampamaind.com` es un placeholder y hay que confirmarlo.
+- **Formulario de contacto:** en `js/main.js`, completar `FORM_ENDPOINT` con el endpoint de un servicio de formularios (por ejemplo Formspree). Mientras esté vacío, el formulario arma el mail con los datos y abre el programa de correo de la persona.
+- **Mail de contacto:** `hola@pampamaind.com` (en `FALLBACK_EMAIL`) es un placeholder y hay que confirmarlo.
 - **Fotos:** el hero, Quiénes somos y Servicios usan placeholders de color. Cuando existan, agregar a `assets/`:
   - `hero.jpg`
   - `equipo.jpg`, `trabajo.jpg`

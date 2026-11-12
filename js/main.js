@@ -116,6 +116,125 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---------- Acompañante: la pareja del isotipo baja con el scroll ---------- */
+  var rail = doc.getElementById('dancerRail');
+  var dancer = doc.getElementById('dancer');
+  if (rail && dancer) {
+    var stopTimer = null;
+    var dancerTick = false;
+    var updateDancer = function () {
+      var max = doc.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      rail.style.setProperty('--p', p.toFixed(4));
+      // El "baile": un vaivén suave de lado a lado a medida que avanza (solo se desplaza; el logo no se rota ni se deforma).
+      var sway = reduceMotion.matches ? 0 : Math.sin(p * Math.PI * 16) * 10;
+      rail.style.setProperty('--sway', sway.toFixed(1) + 'px');
+      dancerTick = false;
+    };
+    var onDancerScroll = function () {
+      if (!dancerTick) { dancerTick = true; window.requestAnimationFrame(updateDancer); }
+      if (reduceMotion.matches) return;
+      dancer.classList.add('is-moving');
+      window.clearTimeout(stopTimer);
+      stopTimer = window.setTimeout(function () { dancer.classList.remove('is-moving'); }, 180);
+    };
+    window.addEventListener('scroll', onDancerScroll, { passive: true });
+    window.addEventListener('resize', updateDancer);
+    updateDancer();
+  }
+
+  /* ---------- Formulario de contacto ---------- */
+  // TODO: pegar acá el endpoint del servicio de formularios (por ejemplo Formspree:
+  // 'https://formspree.io/f/xxxxxxx'). Mientras esté vacío, el formulario arma el
+  // mail con los datos y abre el programa de correo de la persona.
+  var FORM_ENDPOINT = '';
+  var FALLBACK_EMAIL = 'hola@pampamaind.com'; // TODO: confirmar mail
+
+  var form = doc.getElementById('contactForm');
+  if (form) {
+    var statusEl = doc.getElementById('formStatus');
+    var thanks = doc.getElementById('formThanks');
+    var submitBtn = form.querySelector('.form-submit');
+
+    var setError = function (name, msg) {
+      var input = form.elements[name];
+      doc.getElementById('e-' + name).textContent = msg;
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      return !msg;
+    };
+    var validate = function () {
+      var nombre = form.nombre.value.trim();
+      var contacto = form.contacto.value.trim();
+      var looksMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contacto);
+      var looksPhone = contacto.replace(/\D/g, '').length >= 8;
+      var okN = setError('nombre', nombre ? '' : 'Decinos cómo te llamás.');
+      var okC = setError('contacto', contacto ? ((looksMail || looksPhone) ? '' : 'Revisá el número o el mail: parece incompleto.') : 'Dejanos un WhatsApp o un mail para responderte.');
+      if (!okN) form.nombre.focus(); else if (!okC) form.contacto.focus();
+      return okN && okC;
+    };
+    // Al corregir un campo con error, se revalida en el momento.
+    ['nombre', 'contacto'].forEach(function (name) {
+      form.elements[name].addEventListener('input', function () {
+        if (this.getAttribute('aria-invalid') === 'true') {
+          if (name === 'nombre') setError('nombre', this.value.trim() ? '' : 'Decinos cómo te llamás.');
+          else {
+            var v = this.value.trim();
+            var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || v.replace(/\D/g, '').length >= 8;
+            setError('contacto', ok ? '' : 'Revisá el número o el mail: parece incompleto.');
+          }
+        }
+      });
+    });
+
+    var showThanks = function (nombre, text) {
+      doc.getElementById('thanksName').textContent = nombre.split(' ')[0];
+      if (text) doc.getElementById('thanksText').textContent = text;
+      form.hidden = true;
+      thanks.hidden = false;
+      thanks.focus();
+    };
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      statusEl.textContent = '';
+      if (form.web.value) return; // bot
+      if (!validate()) return;
+
+      var data = {
+        nombre: form.nombre.value.trim(),
+        contacto: form.contacto.value.trim(),
+        negocio: form.negocio.value,
+        servicio: form.servicio.value,
+        mensaje: form.mensaje.value.trim()
+      };
+
+      if (!FORM_ENDPOINT) {
+        var body = 'Nombre: ' + data.nombre + '\nContacto: ' + data.contacto +
+          '\nNegocio: ' + data.negocio + '\nNecesito: ' + data.servicio +
+          (data.mensaje ? '\n\n' + data.mensaje : '');
+        window.location.href = 'mailto:' + FALLBACK_EMAIL +
+          '?subject=' + encodeURIComponent('Consulta desde la web: ' + data.servicio) +
+          '&body=' + encodeURIComponent(body);
+        showThanks(data.nombre, 'Se abrió tu programa de correo con la consulta lista. Envialo y te respondemos en el día hábil.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        showThanks(data.nombre);
+      }).catch(function () {
+        statusEl.textContent = 'No pudimos enviar la consulta. Probá de nuevo en un momento.';
+      }).then(function () {
+        submitBtn.disabled = false;
+      });
+    });
+  }
+
   /* ---------- Foco al destino de un ancla (teclado y lectores de pantalla) ---------- */
   doc.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');

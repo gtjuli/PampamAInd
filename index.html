@@ -93,6 +93,12 @@
     <a class="btn btn--primary menu-cta" href="#contacto">Contanos qué necesitás</a>
   </div>
 
+  <!-- Acompañante de scroll: la pareja del isotipo recorre la página de arriba a abajo -->
+  <div class="dancer-rail" id="dancerRail" aria-hidden="true">
+    <span class="dancer-progress"></span>
+    <span class="dancer" id="dancer"><img src="assets/isotipo-sm.jpg" alt="" width="88" height="88"></span>
+  </div>
+
   <main id="contenido" tabindex="-1">
 
     <!-- HERO -->
@@ -420,17 +426,84 @@
       </div>
     </section>
 
-    <!-- CIERRE -->
+    <!-- CONTACTO: formulario -->
     <section class="cta-band" id="contacto" aria-labelledby="ctaTitle">
       <div class="cta-dots" aria-hidden="true"></div>
-      <div class="container cta-inner reveal">
-        <p class="eyebrow eyebrow--line eyebrow--center">Contacto</p>
-        <h2 class="cta-title gotica" id="ctaTitle">Hablemos.</h2>
-        <p class="lead">Contanos qué te está frenando y te respondemos en el día hábil con una propuesta concreta.</p>
-        <div class="cta-actions">
-          <!-- TODO: confirmar el mail de contacto (hola@pampamaind.com es un placeholder). -->
-          <a class="btn btn--primary" href="mailto:hola@pampamaind.com?subject=Pedido%20de%20propuesta">Pedir propuesta <span class="arrow-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
-          <a class="btn btn--outline" href="#como">Ver cómo trabajamos</a>
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow eyebrow--line">Contacto</p>
+          <h2 class="cta-title gotica" id="ctaTitle">Hablemos.</h2>
+          <p class="lead">Contanos qué te está frenando y te respondemos en el día hábil con una propuesta concreta.</p>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Primera charla sin costo y sin compromiso</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Te responde una persona, no un bot</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Propuesta con precio y plazo claros</li>
+          </ul>
+        </div>
+
+        <div class="form-card reveal" id="formCard">
+          <form id="contactForm" novalidate>
+            <h3 class="title-m">Contanos tu caso</h3>
+            <p class="form-note">Los campos con <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.</p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="f-nombre">Tu nombre <span aria-hidden="true">*</span></label>
+                <input id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+                <p class="field-error" id="e-nombre"></p>
+              </div>
+              <div class="field">
+                <label for="f-contacto">WhatsApp o mail <span aria-hidden="true">*</span></label>
+                <input id="f-contacto" name="contacto" type="text" autocomplete="email" required aria-describedby="h-contacto e-contacto">
+                <p class="field-hint" id="h-contacto">Por donde te quede más cómodo que te escribamos.</p>
+                <p class="field-error" id="e-contacto"></p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="f-negocio">Tu negocio</label>
+                <select id="f-negocio" name="negocio">
+                  <option>Profesional independiente</option>
+                  <option>Comercio</option>
+                  <option>Pyme o empresa del agro</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-servicio">¿Qué necesitás?</label>
+                <select id="f-servicio" name="servicio">
+                  <option>Soporte informático</option>
+                  <option>Desarrollo web</option>
+                  <option>Aplicación a medida</option>
+                  <option>Automatización e IA</option>
+                  <option selected>Todavía no lo sé</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-mensaje">Contanos un poco más <span class="optional">(opcional)</span></label>
+              <textarea id="f-mensaje" name="mensaje" rows="4" maxlength="1000" placeholder="Por ejemplo: qué tarea te come más tiempo en la semana."></textarea>
+            </div>
+
+            <!-- Trampa para bots: las personas no ven este campo -->
+            <div class="hp" aria-hidden="true">
+              <label for="f-web">No completar</label>
+              <input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button class="btn btn--primary form-submit" type="submit">Enviar consulta <span class="arrow-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="form-legal">Usamos tus datos solo para responderte. No los compartimos con nadie.</p>
+          </form>
+
+          <div class="form-thanks" id="formThanks" tabindex="-1" hidden>
+            <span class="thanks-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+            <h3 class="title-m">¡Gracias, <span id="thanksName"></span>!</h3>
+            <p id="thanksText">Ya nos llegó tu consulta. Te escribimos en el día hábil por el medio que nos dejaste.</p>
+            <p class="muted">Mientras tanto, pensá en la tarea que más tiempo te come en la semana: por ahí empieza la charla.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -464,8 +537,7 @@
       <div class="footer-col">
         <h2 class="footer-h">Contacto</h2>
         <ul>
-          <!-- TODO: confirmar mail -->
-          <li><a href="mailto:hola@pampamaind.com">hola@pampamaind.com</a></li>
+          <li><a href="#contacto">Formulario de contacto</a></li>
           <li class="muted">Remoto en todo el país</li>
           <li class="muted">Respuesta en el día hábil</li>
         </ul>
