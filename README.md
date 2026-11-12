@@ -2,14 +2,14 @@
 
 Landing de PampamAInd · *Mitad campo, mitad ciudad.* Consultora tecnológica para profesionales, comercios y pymes sin área de sistemas.
 
-Versión **Landing v2 · Moderno × medieval**, tema "Noche". Sitio estático en HTML, CSS y JavaScript vanilla, sin frameworks ni build.
+Versión **Landing v3 · Corporativo × marca**: estructura corporativa (referencias: Accenture, Acsys, Genit y Hostinger) con la identidad PampamAInd: noche, trigo, pergamino, semitono y un toque de gótica. Sitio estático en HTML, CSS y JavaScript vanilla, sin frameworks ni build.
 
 ## Estructura
 
 ```
 index.html
 css/styles.css     tokens del tema Noche, componentes y secciones
-js/main.js         header sticky, menú overlay, reveal, texto que se enciende, parallax
+js/main.js         header sticky, menú overlay, pestañas, aparición al hacer scroll
 assets/            logo, favicon (y acá van las fotos cuando estén)
 ```
 
