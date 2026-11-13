@@ -1,17 +1,20 @@
 # PampamAInd
 
-Landing de PampamAInd · *Mitad campo, mitad ciudad.* Consultora tecnológica para profesionales, comercios y pymes sin área de sistemas.
+Landing de PampamAInd · *Tu mirada crea.* Plataforma local de asistencia editorial, en beta privada.
 
-Versión **Landing v3 · Corporativo × marca**: estructura corporativa (referencias: Accenture, Acsys, Genit y Hostinger) con la identidad PampamAInd: noche, trigo, pergamino, semitono y un toque de gótica. Sitio estático en HTML, CSS y JavaScript vanilla, sin frameworks ni build.
+Sitio estático en HTML, CSS y JavaScript vanilla, sin frameworks ni build.
 
 ## Estructura
 
 ```
-index.html
-css/styles.css     tokens del tema Noche, componentes y secciones
-js/main.js         header sticky, menú overlay, pestañas, aparición al hacer scroll
-assets/            logo, favicon (y acá van las fotos cuando estén)
+index.html      la landing: recorrida en 5 capítulos + camino nuevo, plataforma y contacto
+style.css       estilos, escena fija y animaciones de los personajes
+app.js          recorrida según el scroll: posiciones del gaucho y la dama, ocaso, sol, pausa
+assets/         personajes por piezas (cuerpo, mano, pollera), bandera, sol, marca y fuentes
+consultora/     la landing anterior de la consultora (soporte, web, aplicaciones e IA)
 ```
+
+Las fuentes (Grenze Gotisch e IM Fell English) van locales en `assets/fuentes/`, con su licencia OFL.
 
 ## Ver en local
 
@@ -21,15 +24,7 @@ python3 -m http.server 8000
 
 Después abrí http://localhost:8000.
 
-## Pendientes (TODO en el código)
+## Pendientes
 
-- **Formulario de contacto:** en `js/main.js`, completar `FORM_ENDPOINT` con el endpoint de un servicio de formularios (por ejemplo Formspree). Mientras esté vacío, el formulario arma el mail con los datos y abre el programa de correo de la persona.
-- **Mail de contacto:** `hola@pampamaind.com` (en `FALLBACK_EMAIL`) es un placeholder y hay que confirmarlo.
-- **Fotos:** el hero, Quiénes somos y Servicios usan placeholders de color. Cuando existan, agregar a `assets/`:
-  - `hero.jpg`
-  - `equipo.jpg`, `trabajo.jpg`
-  - `servicio-1.jpg` … `servicio-4.jpg`
-
-  En `index.html` hay un comentario TODO en cada lugar donde va un `<img>`.
-- **Logo:** el header usa el solo logotipo a color sobre placa pergamino (`assets/logo-wordmark.png`) y el footer la versión principal (`assets/logo-principal.jpg`), como indica el manual para fondos oscuros. Pasar a SVG cuando exista la versión vectorial.
-- **og:image:** falta una imagen para compartir en redes (1200×630, con URL absoluta).
+- **Formulario de contacto:** está deshabilitado y dice "en preparación". Todavía no recibe ni envía datos.
+- **Landing de la consultora:** quedó en `/consultora/`. Decidir si se mantiene, se enlaza o se borra.

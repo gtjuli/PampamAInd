@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><defs>
+    <pattern id="puntos-sol" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><circle cx="3" cy="3" r="2.8" fill="#c98f2a"/><circle cx="8.5" cy="8.5" r="2.8" fill="#c98f2a"/></pattern>
+    <pattern id="puntos" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <circle cx="3" cy="3" r="2.6" fill="#5f93c2"/><circle cx="8.5" cy="8.5" r="2.6" fill="#5f93c2"/>
+    </pattern>
+    <filter id="difuso" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="grano" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 .55  0 0 0 0 .48  0 0 0 0 .36  0 0 0 -1.6 1.05"/>
+    </filter>
+    <!-- la bandera: franjas onduladas y difuminadas que atraviesan a la pareja -->
+    <mask id="m-celeste"><rect width="1000" height="1000" fill="#000"/>
+      <g filter="url(#difuso)" fill="#fff">
+        <path d="M-80 -60H1080V250C820 300 560 210 300 270 140 305 40 300 -80 280Z"/>
+        <path d="M-80 1060H1080V760C820 700 560 800 300 735 140 700 40 710 -80 730Z"/>
+      </g></mask>
+    <mask id="m-sol"><rect width="1000" height="1000" fill="#000"/>
+      <circle cx="250" cy="330" r="185" fill="#fff" filter="url(#difuso)"/></mask>
+  </defs><rect width="1000" height="1000" fill="#8fb4d6" opacity=".24" mask="url(#m-celeste)"/><rect width="1000" height="1000" fill="url(#puntos)" mask="url(#m-celeste)" opacity=".55"/></svg>

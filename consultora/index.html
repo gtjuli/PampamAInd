@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PampamAInd · Tecnología simple para negocios de verdad</title>
+  <meta name="description" content="Consultora tecnológica para profesionales, comercios y pymes sin área de sistemas: soporte informático, desarrollo web, aplicaciones a medida y automatización con inteligencia artificial.">
+  <meta name="theme-color" content="#0f1730">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="PampamAInd">
+  <meta property="og:title" content="PampamAInd · Tecnología simple para negocios de verdad">
+  <meta property="og:description" content="Soporte, web, aplicaciones e inteligencia artificial para negocios que no tienen un área de sistemas. Mitad campo, mitad ciudad.">
+  <!-- TODO: agregar og:image con URL absoluta (1200×630). -->
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=5">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra superior en movimiento -->
+  <div class="ticker" id="top" aria-label="Soporte, web, aplicaciones e inteligencia artificial. Respondemos en el día hábil.">
+    <div class="ticker-track" aria-hidden="true">
+      <div class="ticker-group">
+        <span>Soporte informático</span><i class="rombo"></i>
+        <span>Desarrollo web</span><i class="rombo"></i>
+        <span>Aplicaciones a medida</span><i class="rombo"></i>
+        <span>Automatización e inteligencia artificial</span><i class="rombo"></i>
+        <span>Respondemos en el día hábil</span><i class="rombo"></i>
+        <span>Primera charla sin costo</span><i class="rombo"></i>
+      </div>
+      <div class="ticker-group">
+        <span>Soporte informático</span><i class="rombo"></i>
+        <span>Desarrollo web</span><i class="rombo"></i>
+        <span>Aplicaciones a medida</span><i class="rombo"></i>
+        <span>Automatización e inteligencia artificial</span><i class="rombo"></i>
+        <span>Respondemos en el día hábil</span><i class="rombo"></i>
+        <span>Primera charla sin costo</span><i class="rombo"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo-plate" href="#top" aria-label="PampamAInd, volver al inicio">
+        <!-- Solo logotipo a color sobre placa pergamino (manual de marca, fondos oscuros). TODO: SVG. -->
+        <img src="assets/logo-wordmark.png" alt="PampamAInd" width="131" height="26">
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#soluciones">Soluciones</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#como">Cómo trabajamos</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn--outline btn--s header-cta" href="#contacto">Contactanos</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="menuOverlay">
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+          <span class="menu-label">Menú</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menú en celular -->
+  <div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+    <div class="menu-head">
+      <span class="logo-plate" aria-hidden="true"><img src="assets/logo-wordmark.png" alt="" width="131" height="26"></span>
+      <button class="menu-close" id="menuClose" type="button"><span class="close-icon" aria-hidden="true"></span>Cerrar</button>
+    </div>
+    <nav class="menu-nav" aria-label="Secciones">
+      <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#soluciones">Soluciones</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#como">Cómo trabajamos</a></li>
+        <li><a href="#para-quien">Para quién</a></li>
+        <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary menu-cta" href="#contacto">Contanos qué necesitás</a>
+  </div>
+
+  <!-- Acompañante de scroll: la pareja del isotipo recorre la página de arriba a abajo -->
+  <div class="dancer-rail" id="dancerRail" aria-hidden="true">
+    <span class="dancer-progress"></span>
+    <span class="dancer" id="dancer"><span class="dancer-frame"><img src="assets/isotipo-sm.jpg" alt="" width="112" height="112"></span></span>
+  </div>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-dots" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow eyebrow--line">Consultora tecnológica · Mitad campo, mitad ciudad</p>
+          <h1 class="hero-title" id="heroTitle">Tecnología simple para negocios <em class="gotica">de verdad.</em></h1>
+          <p class="hero-lead">Soporte, web, aplicaciones e inteligencia artificial en un solo lugar, para profesionales, comercios y pymes que no tienen un área de sistemas.</p>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Una persona que conoce tu caso, no un call center</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Te lo explicamos en criollo, sin jerga</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Remoto en todo el país, o en persona cuando hace falta</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#contacto">Contanos qué necesitás <span class="arrow-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></a>
+            <a class="text-link" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+
+        <!-- Maqueta de un panel a medida (ilustrativa) -->
+        <div class="hero-visual" role="img" aria-label="Ejemplo ilustrativo de un panel a medida: turnos del día, tareas automatizadas y avisos automáticos.">
+          <div class="mock" aria-hidden="true">
+            <div class="mock-bar"><i></i><i></i><i></i><span>Panel del negocio · ejemplo</span></div>
+            <div class="mock-body">
+              <div class="mock-card">
+                <p class="mock-k">Turnos de hoy</p>
+                <div class="mock-row"><span>09:00 · Consulta</span><b class="pill pill--ok">Confirmado</b></div>
+                <div class="mock-row"><span>10:30 · Control</span><b class="pill pill--ok">Confirmado</b></div>
+                <div class="mock-row"><span>12:00 · Primera vez</span><b class="pill pill--wait">Esperando</b></div>
+              </div>
+              <div class="mock-card">
+                <p class="mock-k">Tareas automatizadas</p>
+                <div class="mock-bars"><span style="--h:34%"></span><span style="--h:48%"></span><span style="--h:42%"></span><span style="--h:66%"></span><span style="--h:90%"></span></div>
+                <p class="mock-note">Cada semana, un poco menos a mano</p>
+              </div>
+            </div>
+          </div>
+          <div class="chip chip--a" aria-hidden="true"><span class="chip-ico"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><div><b>Turno confirmado</b><small>Aviso enviado por WhatsApp</small></div></div>
+          <div class="chip chip--b" aria-hidden="true"><span class="chip-ico chip-ico--cielo"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V10M12 20V4M18 20v-7"/></svg></span><div><b>Parte del campo</b><small>Llegó solo a la oficina</small></div></div>
+        </div>
+      </div>
+
+      <!-- Garantías -->
+      <div class="container">
+        <ul class="trust">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v10H8l-4 4z"/></svg>Primera charla sin costo</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg>Respuesta en el día hábil</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Propuesta con precio y plazo claros</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Campo y ciudad, remoto o presencial</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVICIOS: tarjetas verticales -->
+    <section class="section section--dark" id="servicios" aria-labelledby="servTitle">
+      <div class="container">
+        <div class="split-head reveal">
+          <div>
+            <p class="eyebrow eyebrow--line">Servicios</p>
+            <h2 class="title-xl" id="servTitle">Todo lo que tu negocio necesita, en un solo lugar</h2>
+          </div>
+          <p class="lead">Elegimos la solución que vas a usar todos los días, no la que queda linda en una presentación. Empezá por un servicio o combiná los cuatro.</p>
+        </div>
+
+        <div class="serv-grid" data-reveal-group>
+          <a class="serv-card" href="#soluciones">
+            <div class="serv-art serv-art--arena" aria-hidden="true">
+              <div class="art-chat">
+                <span class="msg in">No me anda la impresora de facturas</span>
+                <span class="msg out">Ya me conecto y lo vemos.</span>
+                <span class="msg out">Listo, quedó andando.</span>
+              </div>
+            </div>
+            <div class="serv-body">
+              <p class="eyebrow">Mantenimiento y ayuda</p>
+              <h3 class="h2">Soporte informático</h3>
+              <p class="muted">Compus, mail, redes e impresoras que andan.</p>
+              <span class="serv-more">Conocer más <span class="arrow-sq arrow-sq--s" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></span>
+            </div>
+          </a>
+          <a class="serv-card" href="#soluciones">
+            <div class="serv-art serv-art--bruma" aria-hidden="true">
+              <div class="art-web">
+                <span class="art-web-bar"></span>
+                <span class="art-web-hero"></span>
+                <span class="art-web-slots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span>
+              </div>
+            </div>
+            <div class="serv-body">
+              <p class="eyebrow">Sitios y presencia</p>
+              <h3 class="h2">Desarrollo web</h3>
+              <p class="muted">Para que te encuentren, te escriban y reserven solos.</p>
+              <span class="serv-more">Conocer más <span class="arrow-sq arrow-sq--s" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></span>
+            </div>
+          </a>
+          <a class="serv-card" href="#soluciones">
+            <div class="serv-art serv-art--salvia" aria-hidden="true">
+              <div class="art-chart"><i style="--h:35%"></i><i style="--h:55%"></i><i style="--h:45%"></i><i style="--h:75%"></i><i style="--h:92%"></i></div>
+            </div>
+            <div class="serv-body">
+              <p class="eyebrow">Herramientas propias</p>
+              <h3 class="h2">Aplicaciones a medida</h3>
+              <p class="muted">Stock, pedidos, turnos o reportes hechos a tu forma de trabajar.</p>
+              <span class="serv-more">Conocer más <span class="arrow-sq arrow-sq--s" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></span>
+            </div>
+          </a>
+          <a class="serv-card" href="#soluciones">
+            <div class="serv-art serv-art--cielo" aria-hidden="true">
+              <div class="art-flow">
+                <span>Audio de WhatsApp</span><i></i>
+                <span>La IA lo pasa a planilla</span><i></i>
+                <span>Reporte en la oficina</span>
+              </div>
+            </div>
+            <div class="serv-body">
+              <p class="eyebrow">Lo repetitivo, solo <span class="badge-new">Nuevo</span></p>
+              <h3 class="h2">Automatización e IA</h3>
+              <p class="muted">Inteligencia artificial que hace el trabajo pesado sin hacer ruido.</p>
+              <span class="serv-more">Conocer más <span class="arrow-sq arrow-sq--s" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECLARACIÓN -->
+    <section class="statement" aria-labelledby="stTitle">
+      <div class="statement-dots" aria-hidden="true"></div>
+      <div class="container statement-inner reveal">
+        <h2 class="statement-title" id="stTitle"><span>Mitad campo,</span> <span>mitad ciudad</span></h2>
+        <p class="statement-sub">La misma cercanía para el estudio del centro, el comercio de barrio y la empresa del agro.</p>
+      </div>
+    </section>
+
+    <!-- SOLUCIONES: grilla con íconos -->
+    <section class="section section--light" id="soluciones" aria-labelledby="solTitle">
+      <div class="container">
+        <header class="center-head reveal">
+          <p class="eyebrow eyebrow--line eyebrow--center">Soluciones</p>
+          <h2 class="title-xl" id="solTitle">Lo que resolvemos todos los días</h2>
+        </header>
+
+        <div class="sol-grid" data-reveal-group>
+          <article class="sol-card">
+            <svg class="sol-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v11H3zM8 20h8M12 16v4"/></svg>
+            <h3 class="h3">Compus y equipos</h3>
+            <p>Mantenimiento, actualizaciones y reparaciones para que el trabajo no se frene.</p>
+          </article>
+          <article class="sol-card">
+            <svg class="sol-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>
+            <h3 class="h3">Mail y cuentas</h3>
+            <p>Correo con tu dominio, contraseñas y accesos en orden.</p>
+          </article>
+          <article class="sol-card">
+            <svg class="sol-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg>
+            <h3 class="h3">Redes y wifi</h3>
+            <p>Internet estable en la oficina, el local o el galpón.</p>
+          </article>
+          <article class="sol-card">
+            <svg class="sol-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+            <h3 class="h3">Copias y seguridad</h3>
+            <p>Copias de respaldo automáticas y protección para no perder información.</p>
+          </article>
+          <article class="sol-card">
+            <svg class="sol-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v16H3zM3 9h18M7 6.5h1"/></svg>
+            <h3 class="h3">Páginas web</h3>
+            <p>Simples, rápidas, fáciles de actualizar y pensadas para el celular.</p>
+          </article>
+          <article class="sol-card">
+            <svg class="sol-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4M8 13h3v3H8z"/></svg>
+            <h3 class="h3">Turnos y pedidos online</h3>
+            <p>Que tus clientes reserven o pidan solos, con aviso automático.</p>
+          </article>
+          <article class="sol-card">
+            <svg class="sol-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></svg>
+            <h3 class="h3">Stock y ventas</h3>
+            <p>Aplicaciones a medida para vender más y equivocarte menos.</p>
+          </article>
+          <article class="sol-card">
+            <svg class="sol-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11M4 12h7M4 17h11M17 4l3 3-3 3M17 14l3 3-3 3"/></svg>
+            <h3 class="h3">Reportes y datos</h3>
+            <p>Información ordenada que llega sola, sin planillas sueltas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="section section--cream" id="nosotros" aria-labelledby="nosTitle">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <div class="doble-marco">
+            <img src="assets/isotipo.jpg" alt="Isotipo de PampamAInd: una pareja bailando una danza criolla, en grabado." width="560" height="560" loading="lazy">
+          </div>
+        </div>
+        <div class="about-copy" data-reveal-group>
+          <p class="eyebrow eyebrow--line">Quiénes somos</p>
+          <h2 class="title-xl" id="nosTitle">Primero entendemos cómo trabajás. <span class="soft">Después proponemos.</span></h2>
+          <p class="lead">PampamAInd junta tres cosas: la pampa, el origen y la palabra que vale; el AI escondido en el medio, la tecnología que hace el trabajo pesado sin hacer ruido; y la cabeza puesta en resolver.</p>
+          <div class="values">
+            <div class="value">
+              <span class="value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></span>
+              <div><h3 class="h3">Palabra que se cumple</h3><p>Lo que decimos en la propuesta es lo que entregamos, en el plazo que dijimos.</p></div>
+            </div>
+            <div class="value">
+              <span class="value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg></span>
+              <div><h3 class="h3">Simple antes que impresionante</h3><p>La solución que vas a usar todos los días.</p></div>
+            </div>
+            <div class="value">
+              <span class="value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
+              <div><h3 class="h3">Cerca</h3><p>Una persona que conoce tu caso y responde en el día.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO TRABAJAMOS -->
+    <section class="section section--dark" id="como" aria-labelledby="comoTitle">
+      <div class="container">
+        <header class="center-head reveal">
+          <p class="eyebrow eyebrow--line eyebrow--center">Cómo trabajamos</p>
+          <h2 class="title-xl" id="comoTitle">Por el camino más corto</h2>
+          <p class="lead">Como el baqueano: conocemos el terreno y no hacemos alarde de saberlo.</p>
+        </header>
+
+        <ol class="steps" data-reveal-group>
+          <li class="step">
+            <span class="step-n">01</span>
+            <h3 class="h2">Escuchamos</h3>
+            <p class="muted">Una charla para entender cómo trabaja tu negocio y dónde se pierde tiempo.</p>
+          </li>
+          <li class="step">
+            <span class="step-n">02</span>
+            <h3 class="h2">Proponemos</h3>
+            <p class="muted">Alcance, plazo y precio claros. Si algo no conviene, te lo decimos.</p>
+          </li>
+          <li class="step">
+            <span class="step-n">03</span>
+            <h3 class="h2">Resolvemos</h3>
+            <p class="muted">Implementamos en el plazo acordado. Si algo cambia, avisamos antes.</p>
+          </li>
+          <li class="step">
+            <span class="step-n">04</span>
+            <h3 class="h2">Acompañamos</h3>
+            <p class="muted">Te lo explicamos en criollo y seguimos cerca para lo que venga.</p>
+          </li>
+        </ol>
+
+        <!-- Compromisos de servicio (no son métricas de resultados) -->
+        <dl class="commits reveal">
+          <div><dt>24 h</dt><dd>para responder cada consulta en día hábil</dd></div>
+          <div><dt>1</dt><dd>persona que conoce tu caso de punta a punta</dd></div>
+          <div><dt>0</dt><dd>letra chica en la propuesta</dd></div>
+          <div><dt>100%</dt><dd>explicado en criollo</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- PARA QUIÉN: pestañas -->
+    <section class="section section--light" id="para-quien" aria-labelledby="pqTitle">
+      <div class="container">
+        <header class="center-head reveal">
+          <p class="eyebrow eyebrow--line eyebrow--center">Para quién</p>
+          <h2 class="title-xl" id="pqTitle">Negocios de verdad</h2>
+        </header>
+
+        <div class="tabs reveal">
+          <div class="tab-list" role="tablist" aria-label="Tipo de negocio">
+            <button class="tab" type="button" role="tab" id="tab-prof" aria-controls="panel-prof" aria-selected="true">Profesionales</button>
+            <button class="tab" type="button" role="tab" id="tab-com" aria-controls="panel-com" aria-selected="false" tabindex="-1">Comercios</button>
+            <button class="tab" type="button" role="tab" id="tab-agro" aria-controls="panel-agro" aria-selected="false" tabindex="-1">Agro y pymes</button>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-prof" aria-labelledby="tab-prof" tabindex="0">
+            <div class="tp-copy">
+              <h3 class="title-m">El profesional independiente</h3>
+              <p class="muted">Contadores, abogadas, arquitectos, consultorios.</p>
+              <blockquote>“Dejá de perder la mañana en lo administrativo.”</blockquote>
+              <ul class="tp-list"><li>Turnos online con confirmación automática</li><li>Mail, archivos y copias en orden</li><li>Una web simple para que te encuentren</li></ul>
+            </div>
+            <div class="tp-art tp-art--bruma" aria-hidden="true"><span class="tp-ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v15H4zM4 9h16M8 3v4M16 3v4"/></svg></span></div>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-com" aria-labelledby="tab-com" tabindex="0" hidden>
+            <div class="tp-copy">
+              <h3 class="title-m">El comercio de barrio</h3>
+              <p class="muted">Locales, distribuidoras, gastronomía.</p>
+              <blockquote>“Te armamos lo justo para que vendas más y te equivoques menos.”</blockquote>
+              <ul class="tp-list"><li>Stock y ventas en una sola pantalla</li><li>Pedidos online y por WhatsApp</li><li>Soporte cuando se cae el sistema</li></ul>
+            </div>
+            <div class="tp-art tp-art--arena" aria-hidden="true"><span class="tp-ico"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></svg></span></div>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-agro" aria-labelledby="tab-agro" tabindex="0" hidden>
+            <div class="tp-copy">
+              <h3 class="title-m">La pyme o empresa del agro</h3>
+              <p class="muted">Campo, acopio, contratistas, empresas familiares.</p>
+              <blockquote>“Que la información del campo llegue sola a la oficina.”</blockquote>
+              <ul class="tp-list"><li>Partes diarios automáticos desde el celular</li><li>Reportes de lotes, lluvias y entregas</li><li>Redes estables entre el campo y la oficina</li></ul>
+            </div>
+            <div class="tp-art tp-art--salvia" aria-hidden="true"><span class="tp-ico"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V10M12 20V4M18 20v-7"/></svg></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section section--cream" id="preguntas" aria-labelledby="faqTitle">
+      <div class="container faq-grid">
+        <div class="reveal">
+          <p class="eyebrow eyebrow--line">Preguntas frecuentes</p>
+          <h2 class="title-xl" id="faqTitle">Antes de que preguntes</h2>
+          <p class="lead">¿Tenés otra duda? Escribinos y te respondemos en el día hábil.</p>
+        </div>
+        <div class="faq reveal">
+          <details><summary>¿Cuánto cuesta?</summary><p>Depende de lo que necesites. Después de la primera charla, que no tiene costo, te mandamos una propuesta con el precio total, la forma de pago y la validez. Sin letra chica.</p></details>
+          <details><summary>¿En cuánto tiempo queda andando?</summary><p>Un arreglo de soporte, normalmente en el día. Una web o una aplicación, según el alcance: el plazo va escrito en la propuesta y lo cumplimos.</p></details>
+          <details><summary>¿Trabajan en el campo o solo en la ciudad?</summary><p>En los dos. Atendemos de forma remota en todo el país y vamos en persona cuando hace falta.</p></details>
+          <details><summary>No sé nada de tecnología, ¿me sirve igual?</summary><p>Justamente para eso estamos. Te explicamos todo en criollo y te dejamos una herramienta que vas a poder usar sin volverte experto.</p></details>
+          <details><summary>¿Qué pasa después de la entrega?</summary><p>Seguimos cerca. Te enseñamos a usar lo que hicimos y quedamos disponibles para ajustes, dudas y lo que venga.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO: formulario -->
+    <section class="cta-band" id="contacto" aria-labelledby="ctaTitle">
+      <div class="cta-dots" aria-hidden="true"></div>
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow eyebrow--line">Contacto</p>
+          <h2 class="cta-title gotica" id="ctaTitle">Hablemos.</h2>
+          <p class="lead">Contanos qué te está frenando y te respondemos en el día hábil con una propuesta concreta.</p>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Primera charla sin costo y sin compromiso</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Te responde una persona, no un bot</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Propuesta con precio y plazo claros</li>
+          </ul>
+        </div>
+
+        <div class="form-card reveal" id="formCard">
+          <form id="contactForm" novalidate>
+            <h3 class="title-m">Contanos tu caso</h3>
+            <p class="form-note">Los campos con <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.</p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="f-nombre">Tu nombre <span aria-hidden="true">*</span></label>
+                <input id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+                <p class="field-error" id="e-nombre"></p>
+              </div>
+              <div class="field">
+                <label for="f-contacto">WhatsApp o mail <span aria-hidden="true">*</span></label>
+                <input id="f-contacto" name="contacto" type="text" autocomplete="email" required aria-describedby="h-contacto e-contacto">
+                <p class="field-hint" id="h-contacto">Por donde te quede más cómodo que te escribamos.</p>
+                <p class="field-error" id="e-contacto"></p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="f-negocio">Tu negocio</label>
+                <select id="f-negocio" name="negocio">
+                  <option>Profesional independiente</option>
+                  <option>Comercio</option>
+                  <option>Pyme o empresa del agro</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-servicio">¿Qué necesitás?</label>
+                <select id="f-servicio" name="servicio">
+                  <option>Soporte informático</option>
+                  <option>Desarrollo web</option>
+                  <option>Aplicación a medida</option>
+                  <option>Automatización e IA</option>
+                  <option selected>Todavía no lo sé</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-mensaje">Contanos un poco más <span class="optional">(opcional)</span></label>
+              <textarea id="f-mensaje" name="mensaje" rows="4" maxlength="1000" placeholder="Por ejemplo: qué tarea te come más tiempo en la semana."></textarea>
+            </div>
+
+            <!-- Trampa para bots: las personas no ven este campo -->
+            <div class="hp" aria-hidden="true">
+              <label for="f-web">No completar</label>
+              <input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button class="btn btn--primary form-submit" type="submit">Enviar consulta <span class="arrow-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="form-legal">Usamos tus datos solo para responderte. No los compartimos con nadie.</p>
+          </form>
+
+          <div class="form-thanks" id="formThanks" tabindex="-1" hidden>
+            <span class="thanks-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+            <h3 class="title-m">¡Gracias, <span id="thanksName"></span>!</h3>
+            <p id="thanksText">Ya nos llegó tu consulta. Te escribimos en el día hábil por el medio que nos dejaste.</p>
+            <p class="muted">Mientras tanto, pensá en la tarea que más tiempo te come en la semana: por ahí empieza la charla.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-principal.jpg" alt="PampamAInd" width="112" height="112" loading="lazy">
+        <p class="muted">Consultora tecnológica para profesionales, comercios y pymes, en el campo y en la ciudad.</p>
+      </div>
+      <nav class="footer-col" aria-label="Servicios">
+        <h2 class="footer-h">Servicios</h2>
+        <ul>
+          <li><a href="#servicios">Soporte informático</a></li>
+          <li><a href="#servicios">Desarrollo web</a></li>
+          <li><a href="#servicios">Aplicaciones a medida</a></li>
+          <li><a href="#servicios">Automatización e IA</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Empresa">
+        <h2 class="footer-h">Empresa</h2>
+        <ul>
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#como">Cómo trabajamos</a></li>
+          <li><a href="#para-quien">Para quién</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h2 class="footer-h">Contacto</h2>
+        <ul>
+          <li><a href="#contacto">Formulario de contacto</a></li>
+          <li class="muted">Remoto en todo el país</li>
+          <li class="muted">Respuesta en el día hábil</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="muted">© 2026 PampamAInd · Tecnología simple para negocios de verdad.</p>
+      <p class="footer-lema">Mitad campo, mitad ciudad</p>
+      <a class="text-link" href="#top">Volver arriba <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>
