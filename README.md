@@ -1,6 +1,6 @@
 # PampamAInd
 
-Landing de PampamAInd · *Mitad campo, mitad ciudad.* Consultora tecnológica para profesionales, comercios y pymes sin área de sistemas.
+Landing de PampamAInd · *Tecnología con trato personal.* Consultora tecnológica para profesionales, comercios y pymes sin área de sistemas.
 
 La base es la landing de la recorrida de los personajes; los textos hablan de la consultora y los colores son los del design system (noche, trigo, cielo, cuero, crema, pergamino y tintes de apoyo).
 
