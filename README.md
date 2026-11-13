@@ -28,5 +28,6 @@ Después abrí http://localhost:8000.
 
 ## Pendientes
 
-- **Formulario de contacto:** está deshabilitado y dice "en preparación". Todavía no recibe ni envía datos.
+- **Formulario de contacto:** en `app.js`, completar `FORM_ENDPOINT` con el endpoint de un servicio de formularios (por ejemplo Formspree). Mientras esté vacío, el formulario arma el correo con los datos y abre el programa de correo de la persona.
+- **Correo de contacto:** `hola@pampamaind.com` (en `FALLBACK_EMAIL`) es un placeholder y hay que confirmarlo.
 - **Landing anterior:** quedó en `/consultora/`. Decidir si se mantiene o se borra.

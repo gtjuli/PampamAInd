@@ -24,3 +24,38 @@ document.body.classList.add('enhanced');motion.hidden=false;addEventListener('sc
 motion.addEventListener('click',()=>{paused=!paused;motion.setAttribute('aria-pressed',String(paused));motion.textContent=paused?'Reanudar movimiento':'Pausar movimiento';flush()});
 play.addEventListener('click',()=>{playing=!playing;play.setAttribute('aria-pressed',String(playing));play.setAttribute('aria-label',playing?'Pausar el baile ilustrado':'Reproducir el baile ilustrado');play.innerHTML=playing?'Ⅱ <span>Pausar</span>':'▷ <span>Reproducir</span>';flush()});
 document.fonts.ready.then(measure);new ResizeObserver(measure).observe(story);measure();
+
+/* ---------- Formulario de contacto ---------- */
+// TODO: pegar acá el endpoint del servicio de formularios (por ejemplo Formspree: 'https://formspree.io/f/xxxxxxx').
+// Mientras esté vacío, el formulario arma el correo con los datos y abre el programa de correo de la persona.
+const FORM_ENDPOINT='';
+const FALLBACK_EMAIL='hola@pampamaind.com'; // TODO: confirmar el correo
+const form=document.querySelector('#contact-form');
+if(form){
+  const status=document.querySelector('#form-status'),gracias=document.querySelector('#form-gracias'),enviar=form.querySelector('.enviar');
+  const reglas={
+    nombre:v=>v?'':'Escribí tu nombre y apellido.',
+    telefono:v=>!v?'Dejanos un teléfono de contacto.':v.replace(/\D/g,'').length>=8?'':'Revisá el teléfono: parece incompleto.',
+    correo:v=>!v?'Dejanos un correo para responderte.':/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?'':'Revisá el correo: parece incompleto.',
+    empresa:v=>v?'':'Indicá el nombre de tu empresa o negocio.',
+    mensaje:v=>v?'':'Contanos en qué te podemos ayudar.'};
+  const check=n=>{const el=form.elements[n],msg=reglas[n](el.value.trim());document.querySelector('#e-'+n).textContent=msg;el.setAttribute('aria-invalid',msg?'true':'false');return !msg};
+  Object.keys(reglas).forEach(n=>form.elements[n].addEventListener('input',()=>{if(form.elements[n].getAttribute('aria-invalid')==='true')check(n)}));
+  const listo=(nombre,texto)=>{document.querySelector('#gracias-nombre').textContent=nombre.split(' ')[0];if(texto)document.querySelector('#gracias-texto').textContent=texto;form.hidden=true;gracias.hidden=false;gracias.focus()};
+  form.addEventListener('submit',e=>{
+    e.preventDefault();status.textContent='';
+    if(form.elements.web.value)return; // trampa para bots
+    const malos=Object.keys(reglas).filter(n=>!check(n));
+    if(malos.length){form.elements[malos[0]].focus();return}
+    const d={};['nombre','telefono','correo','empresa','asunto','mensaje'].forEach(n=>d[n]=form.elements[n].value.trim());
+    if(!FORM_ENDPOINT){
+      const cuerpo='Nombre y apellido: '+d.nombre+'\nTeléfono: '+d.telefono+'\nCorreo: '+d.correo+'\nEmpresa: '+d.empresa+'\nAsunto: '+d.asunto+'\n\n'+d.mensaje;
+      location.href='mailto:'+FALLBACK_EMAIL+'?subject='+encodeURIComponent('Consulta desde la web: '+d.asunto)+'&body='+encodeURIComponent(cuerpo);
+      listo(d.nombre,'Se abrió tu programa de correo con el mensaje listo. Envialo y te respondemos en el día hábil.');return}
+    enviar.disabled=true;
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json'},body:JSON.stringify(d)})
+      .then(r=>{if(!r.ok)throw new Error(r.status);listo(d.nombre)})
+      .catch(()=>{status.textContent='No pudimos enviar el mensaje. Probá de nuevo en un momento.'})
+      .finally(()=>{enviar.disabled=false});
+  });
+}
