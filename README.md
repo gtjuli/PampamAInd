@@ -16,7 +16,7 @@ assets/         personajes por piezas (cuerpo, mano, pollera), bandera, sol, mar
 consultora/     la landing anterior de la consultora (soporte, web, aplicaciones e IA)
 ```
 
-Las fuentes (Grenze Gotisch e IM Fell English) van locales en `assets/fuentes/`, con su licencia OFL.
+Las fuentes del manual (Grenze Gotisch para titulares, Source Sans 3 para textos) van locales en `assets/fuentes/`, en woff2 y con su licencia OFL.
 
 ## Ver en local
 
@@ -30,4 +30,3 @@ Después abrí http://localhost:8000.
 
 - **Formulario de contacto:** está deshabilitado y dice "en preparación". Todavía no recibe ni envía datos.
 - **Landing anterior:** quedó en `/consultora/`. Decidir si se mantiene o se borra.
-- **Tipografía:** los titulares usan IM Fell English, como la base. El design system pide Grenze Gotisch y Source Sans 3.
